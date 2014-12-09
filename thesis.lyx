@@ -234,7 +234,6 @@ This file is not designed to change the document class.
 \end_layout
 
 \begin_layout Subject
-Tesi di laurea triennale in Informatica
 \begin_inset Note Note
 status open
 
@@ -261,7 +260,7 @@ Francesco Marano
 \end_layout
 
 \begin_layout Date
-xx Febbraio 2015
+Febbraio 2015
 \end_layout
 
 \begin_layout Publishers
@@ -314,7 +313,23 @@ Università degli studi di Roma Tor Vergata
 \begin_inset Newline newline
 \end_inset
 
-Facoltà di Informatica
+Macroarea di Scienze M.F.N.
+\size normal
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+CORSO DI LAUREA TRIENNALE IN INFORMATICA
+\size normal
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+
 \begin_inset VSpace -3cm
 \end_inset
 
@@ -792,7 +807,7 @@ print
 \begin_inset Quotes eld
 \end_inset
 
-Acknowledgments
+Ringraziamenti
 \begin_inset Quotes erd
 \end_inset
 
@@ -823,7 +838,7 @@ print
 \begin_inset Quotes eld
 \end_inset
 
-Acknowledgments
+Ringraziamenti
 \begin_inset Quotes erd
 \end_inset
 
