@@ -315,7 +315,15 @@ key "wiki:GraphPlan"
 \end_layout
 
 \begin_layout Standard
-Chiameremo questo algoritmo RGP da 
+Chiameremo questo algoritmo RGP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RGP"
+description "Relaxed GraphPlan"
+
+\end_inset
+
+ da 
 \shape italic
 
 \begin_inset Quotes fld
@@ -338,19 +346,12 @@ reference "sec:relaxed-graphplan"
 
 \end_inset
 
- introduce le caratteristiche principali dell'algoritmo RGP
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RGP"
-description "Relaxed GraphPlan"
-
-\end_inset
-
- facendone una panoramica ad alto livello.
+ introduce le caratteristiche principali dell'algoritmo RGP facendone una
+ panoramica ad alto livello.
  Il paragrafo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:struttura-dati"
+reference "sec:istanza-del-problema"
 
 \end_inset
 
@@ -371,23 +372,15 @@ name "sec:relaxed-graphplan"
 \end_layout
 
 \begin_layout Standard
-RGP
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RGP"
-description "Relaxed GraphPlan"
-
-\end_inset
-
- è un algoritmo di pianificazione per la ricerca automatica di pattern di
- esecuzione dei componenti al fine di raggiungere uno stato finale specificato.
+RGP è un algoritmo di pianificazione per la ricerca automatica di pattern
+ di esecuzione dei componenti al fine di raggiungere lo stato finale specificato.
 \end_layout
 
 \begin_layout Standard
 L'algoritmo riceve in input un problema di pianificazione espresso in forma
- di proprietà iniziali e proprietà finali e produce, laddove possibile,
- una sequenza di azioni la cui esecuzione porta al raggiungimento dello
- stato finale.
+ di insieme di proprietà iniziali e proprietà finali e produce, laddove
+ possibile, una sequenza di azioni la cui esecuzione porta al raggiungimento
+ dello stato finale.
 \end_layout
 
 \begin_layout Standard
@@ -395,7 +388,8 @@ Nel grafo risultante dalla costruzione di un'istanza del problema:
 \end_layout
 
 \begin_layout Itemize
-i nodi sono azioni eseguibili, disposte in un'alternanza di livelli
+i nodi sono proprietà e azioni eseguibili, disposte in un'alternanza di
+ livelli
 \end_layout
 
 \begin_layout Itemize
@@ -415,29 +409,23 @@ da un'azione alla proprietà che ha come postcondizione.
 \begin_layout Standard
 Il primo livello contiene le proprietà che identificano lo stato iniziale
  che può eventualmente essere vuoto.
+ L'ultimo livello contiene le proprietà che identificano lo stato finale.
 \end_layout
 
 \begin_layout Standard
 L'algoritmo iterativamente espande il grafo, verificando che non sia già
  stato raggiunto lo stato finale prima di procedere; durante l'espansione
- RGP
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RGP"
-description "Relaxed GraphPlan"
-
-\end_inset
-
- cerca, sulla base delle proprietà fino a quel momento ottenute, tutte quelle
- proprietà le cui precondizioni risultano soddisfatte e le utilizza per
- costruire il livello successivo.
+ RGP cerca, sulla base delle proprietà fino a quel momento ottenute, tutte
+ quelle proprietà le cui precondizioni risultano soddisfatte, e che non
+ siano già state inserite nel grado, e le utilizza per costruire il livello
+ successivo.
 \end_layout
 
-\begin_layout Section
-Struttura dati
+\begin_layout Subsection
+Istanza del problema
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:struttura-dati"
+name "sec:istanza-del-problema"
 
 \end_inset
 
@@ -445,19 +433,55 @@ name "sec:struttura-dati"
 \end_layout
 
 \begin_layout Standard
-In RGP
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RGP"
-description "Relaxed GraphPlan"
-
-\end_inset
-
- un'istanza del problema è rappresentata da un grafo diretto 
-\begin_inset Formula $G=(V,E)$
+In RGP un'istanza del problema è una tripla 
+\begin_inset Formula $P=\left(A,s_{i},g\right)$
 \end_inset
 
  dove:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A$
+\end_inset
+
+ è l'insieme delle azioni
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ è l'insieme delle proprietà che costituiscono lo stato iniziale
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $g$
+\end_inset
+
+ è l'insieme delle proprietà che costituiscono lo stato finale
+\end_layout
+
+\begin_layout Subsection
+Grafo di pianificazione
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:grafo-di-pianificazione"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sia 
+\begin_inset Formula $P=\left(A,s_{i},g\right)$
+\end_inset
+
+ un'istanza di RGP, allora 
+\begin_inset Formula $G=\left(V,E\right)$
+\end_inset
+
+ è il corrispondente grafo di pianificazione, dove:
 \end_layout
 
 \begin_layout Itemize
@@ -473,6 +497,13 @@ description "Relaxed GraphPlan"
 \end_inset
 
 , lo stato iniziale
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{n}\equiv g$
+\end_inset
+
+, lo stato finale
 \end_layout
 
 \begin_layout Itemize
@@ -499,7 +530,7 @@ description "Relaxed GraphPlan"
 
 \end_deeper
 \begin_layout Itemize
-\begin_inset Formula $E=E_{pa}\cup E_{ap}$
+\begin_inset Formula $E=E_{pre}\cup E_{post}$
 \end_inset
 
  con:
@@ -507,14 +538,14 @@ description "Relaxed GraphPlan"
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $E_{pa}=\left\{ (p,a)\colon p\in P_{i-1},a\in A_{i}\left[p\in preconditions(a)\right]\right\} $
+\begin_inset Formula $E_{pre}=\left\{ (p,a)\colon p\in P_{i-1},a\in A_{i}\left[p\in preconditions(a)\right]\right\} $
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $E_{ap}=\left\{ (a,p)\colon a\in A_{i},p\in P_{i}\left[p=postcondition(a)\right]\right\} $
+\begin_inset Formula $E_{post}=\left\{ (a,p)\colon a\in A_{i},p\in P_{i}\left[p=postcondition(a)\right]\right\} $
 \end_inset
 
 
@@ -522,6 +553,348 @@ description "Relaxed GraphPlan"
 
 \end_deeper
 \begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Ad ogni passo dell'algoritmo deve essere vero che, comunque presi due indici
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ e 
+\begin_inset Formula $j$
+\end_inset
+
+ tali che 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ e 
+\begin_inset Formula $i,j<n$
+\end_inset
+
+, allora 
+\begin_inset Formula $a\in A_{i}\implies a\notin A_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Il risultato dell'applicazione dell'insieme di azioni 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ allo stato 
+\begin_inset Formula $s$
+\end_inset
+
+ è definito come:
+\begin_inset Formula 
+\[
+\rho\left(s,\alpha\right)=s\cup postconditions\left(\alpha\right)
+\]
+
+\end_inset
+
+ dove:
+\begin_inset Formula 
+\[
+postconditions\left(\alpha\right)=\bigcup_{a\in\alpha}postcondition\left(a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Un insieme di azioni 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ è applicabile a uno stato 
+\begin_inset Formula $s$
+\end_inset
+
+ se e solo se 
+\begin_inset Formula $\bigcup_{a\in\alpha}preconditions(a)\subseteq s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Dato un insieme di azioni 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in uno stato 
+\begin_inset Formula $s$
+\end_inset
+
+ allora, per ogni permutazione 
+\begin_inset Formula $\sigma=<a_{1},\ldots,a_{k}>$
+\end_inset
+
+ degli elementi di 
+\begin_inset Formula $\alpha$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+la sequenza 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ è applicabile a 
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+lo stato risultante dall'applicazione di 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ è lo stesso di quello derivante dall'applicazione di 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, cioè 
+\begin_inset Formula $\rho\left(s,\alpha\right)=\rho\left(s,\sigma\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:soluzione"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sia 
+\begin_inset Formula $P=\left(A,s_{i},g\right)$
+\end_inset
+
+ un'istanza di RGP e 
+\begin_inset Formula $G=\left(V,E\right)$
+\end_inset
+
+ il corrispondente grafo di pianificazione.
+\end_layout
+
+\begin_layout Proposition
+Se 
+\begin_inset Formula $g$
+\end_inset
+
+ è raggiungibile da 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ allora 
+\begin_inset Formula $\exists P_{g}\colon g\subseteq P_{g}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Due azioni 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $a_{2}$
+\end_inset
+
+ sono equivalenti se e solo se 
+\begin_inset Formula $postcondition\left(a_{1}\right)=postcondition\left(a_{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Due azioni 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $a_{2}$
+\end_inset
+
+ sono identiche se sono equivalenti e 
+\begin_inset Formula $preconditions\left(a_{1}\right)=preconditions\left(a_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Un 
+\shape italic
+layered plan
+\shape default
+ su 
+\begin_inset Formula $G$
+\end_inset
+
+ è una sequenza di insiemi di azioni definita come:
+\begin_inset Formula 
+\[
+\Pi=<\pi_{1},\ldots,\pi_{k}>
+\]
+
+\end_inset
+
+dove:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi_{i}\subseteq A_{i}\subseteq A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi_{i}$
+\end_inset
+
+ è applicabile nello stato 
+\begin_inset Formula $P_{i-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+le azioni in 
+\begin_inset Formula $\pi_{i}$
+\end_inset
+
+ sono non-identiche e non-equivalenti
+\end_layout
+
+\begin_layout Theorem
+Un layered plan 
+\begin_inset Formula $\Pi=<\pi_{1},\ldots,\pi_{k}>$
+\end_inset
+
+ è una soluzione di un'istanza di RGP 
+\begin_inset Formula $P=\left(A,s_{i},g\right)$
+\end_inset
+
+ se e solo se:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi_{1}$
+\end_inset
+
+ è applicabile in 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall j\in\left\{ 2,\ldots,k\right\} $
+\end_inset
+
+ 
+\begin_inset Formula $\pi_{j}$
+\end_inset
+
+ è applicabile nello stato 
+\begin_inset Formula $\rho\left(\ldots\rho\left(\rho\left(s_{i},\pi_{1}\right),\pi_{2}\right)\ldots,\pi_{j-1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $g\subseteq\rho\left(\ldots\rho\left(\rho\left(s_{i},\pi_{1}\right),\pi_{2}\right)\ldots,\pi_{k}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Se 
+\begin_inset Formula $\Pi=<\pi_{1},\ldots,\pi_{k}>$
+\end_inset
+
+ è una soluzione di un'istanza di RGP 
+\begin_inset Formula $P=\left(A,s_{i},g\right)$
+\end_inset
+
+, allora 
+\begin_inset Formula $\forall j\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+ una sequenza di azioni corrispondenti a qualsiasi permutazione degli elementi
+ di 
+\begin_inset Formula $\pi_{j}$
+\end_inset
+
+ è un percorso da 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
 \begin_inset Branch NoChildDocument
 status collapsed
 
