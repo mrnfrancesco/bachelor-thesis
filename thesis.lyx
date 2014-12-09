@@ -12,9 +12,9 @@
 }
 \def\refnamechanges{%
  \renewcommand*{\equationautorefname}[1]{}%
- \renewcommand{\sectionautorefname}{sec.\negthinspace}%
- \renewcommand{\subsectionautorefname}{sec.\negthinspace}%
- \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}%
+ \renewcommand{\sectionautorefname}{sez.\negthinspace}%
+ \renewcommand{\subsectionautorefname}{sez.\negthinspace}%
+ \renewcommand{\subsubsectionautorefname}{sez.\negthinspace}%
  \renewcommand{\figureautorefname}{Fig.\negthinspace}%
  \renewcommand{\tableautorefname}{Tab.\negthinspace}%
 }
