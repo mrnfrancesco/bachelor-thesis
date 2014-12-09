@@ -348,8 +348,8 @@ status collapsed
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "biblio/Plasma"
-options "biblio/alpha"
+bibfiles "Bibliography"
+options "alpha"
 
 \end_inset
 
