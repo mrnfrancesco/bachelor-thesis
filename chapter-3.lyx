@@ -301,26 +301,15 @@ In questo capitolo verranno presentati in dettaglio i diversi elementi che
  presentato.
  Per raggiungere questo risultato e automatizzare il processo di ricerca
  della soluzione, è stato sviluppato un nuovo algoritmo sulla base del ben
- più noto algoritmo di pianificazione 
-\begin_inset Quotes fld
-\end_inset
+ più noto algoritmo di pianificazione GraphPlan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wiki:GraphPlan"
 
-GraphPlan
-\begin_inset Quotes frd
 \end_inset
 
 , sviluppato da Avrim Blum e Merrick Furst nel 1995, di cui costituisce
  un rilassamento.
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-TODO: aggiungere riferimento bibliografico a GraphPlan
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
