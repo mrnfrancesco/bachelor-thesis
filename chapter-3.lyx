@@ -1424,6 +1424,144 @@ return
 
 
 \end_layout
+
+\begin_layout Section
+Proprietà
+\end_layout
+
+\begin_layout Definition
+Un 
+\shape italic
+fixed-point level
+\shape default
+ in un grafo di pianificazione 
+\begin_inset Formula $G$
+\end_inset
+
+ è un livello 
+\begin_inset Formula $k$
+\end_inset
+
+ tale che comunque scelto un indice 
+\begin_inset Formula $i>k$
+\end_inset
+
+, il livello 
+\begin_inset Formula $i$
+\end_inset
+
+ del grafo 
+\begin_inset Formula $G$
+\end_inset
+
+ è identico al livello 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Ogni grafo di pianificazione 
+\begin_inset Formula $G$
+\end_inset
+
+ ha un fixed-point level 
+\begin_inset Formula $k$
+\end_inset
+
+, che è il più piccolo 
+\begin_inset Formula $k$
+\end_inset
+
+ tale che 
+\begin_inset Formula $\left|P_{k}\right|=\left|P_{k+1}\right|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $P_{j}$
+\end_inset
+
+ cresce monotonicamente.
+ 
+\begin_inset Formula $A_{j}$
+\end_inset
+
+ e 
+\begin_inset Formula $P_{j}$
+\end_inset
+
+ dipendono unicamente da 
+\begin_inset Formula $P_{j-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+È sempre vero che 
+\begin_inset Formula $k\leq\left|A\right|+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Durante la costruzione del grafo di pianificazione il caso peggiore si presenta
+ quando:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $s_{i}=\emptyset$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $preconditions\left(a_{1}\right)=\emptyset$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall i=3,\ldots,\left|A\right|,postcondition\left(a_{i-1}\right)=preconditions\left(a_{i}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $g=postcondition\left(a_{\left|A\right|}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo caso a ogni espansione del grafo viene aggiunta solamente un'azione
+ e la sua postcondizione; questo risulta in un unico percorso da 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $g$
+\end_inset
+
+ che passa attraverso 
+\begin_inset Formula $\left|A\right|$
+\end_inset
+
+ livelli più quello iniziale vuoto.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 \begin_inset Branch NoChildDocument
 status collapsed
 
