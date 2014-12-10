@@ -1259,6 +1259,171 @@ foreach
 
 
 \end_layout
+
+\begin_layout Subsection
+Estrazione della soluzione
+\end_layout
+
+\begin_layout Standard
+L'estrazione della soluzione procede iterativamente dall'ultimo verso il
+ primo dei livelli del grafo di pianificazione.
+ A ogni passo 
+\begin_inset Formula $i$
+\end_inset
+
+, trova un insieme di azioni 
+\begin_inset Formula $\alpha_{i}\subseteq A_{i}$
+\end_inset
+
+ tali che lo stato finale 
+\begin_inset Formula $g$
+\end_inset
+
+ sia soddisfatto, cioè 
+\begin_inset Formula $\bigcup_{a\in\alpha_{i}}postcondition\left(a\right)=g$
+\end_inset
+
+, e si inseriscono nella soluzione.
+\end_layout
+
+\begin_layout Standard
+A questo punto si prende l'unione di tutte le precondizioni delle azioni
+ scelte e si imposta come nuovo stato finale, cioè 
+\begin_inset Formula $g=\bigcup_{a\in\alpha_{i}}preconditions\left(a\right)$
+\end_inset
+
+, e si procede con il prossimo livello.
+\end_layout
+
+\begin_layout Standard
+Raggiunto il primo livello (lo stato iniziale), l'algoritmo termina restituendo
+ la soluzione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+estrazione della soluzione
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+function
+\series default
+ LayeredPlan(planning graph 
+\begin_inset Formula $G$
+\end_inset
+
+, goal state 
+\begin_inset Formula $g$
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $solution$
+\end_inset
+
+ 
+\begin_inset Formula $\leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+for
+\series default
+ 
+\begin_inset Formula $i=\left|G\right|$
+\end_inset
+
+ 
+\series bold
+to
+\series default
+ 
+\begin_inset Formula $1$
+\end_inset
+
+ 
+\series bold
+do
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $\alpha_{i}\leftarrow\left\{ a\colon a\in A_{i}\land postcondition\left(a\right)\in g\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+prepend 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $solution$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Formula $g\leftarrow\bigcup_{a\in\alpha_{i}}preconditions\left(a\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+return
+\series default
+ 
+\begin_inset Formula $solution$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
 \begin_inset Branch NoChildDocument
 status collapsed
 
