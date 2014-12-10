@@ -881,6 +881,202 @@ Se
 
 .
 \end_layout
+
+\begin_layout Section
+Descrizione implementativa
+\end_layout
+
+\begin_layout Subsection
+Costruzione del grafo di pianificazione
+\end_layout
+
+\begin_layout Standard
+A partire dallo stato iniziale l'algoritmo iterativamente espande il grafo.
+ A ogni passo si possono verificare tre condizioni:
+\end_layout
+
+\begin_layout Enumerate
+è stato raggiunto lo stato finale.
+ L'algoritmo estrae la soluzione dal grafo trovato e termina.
+\end_layout
+
+\begin_layout Enumerate
+non è stato raggiunto lo stato finale, ma è ancora possibile trovare una
+ soluzione.
+ L'algoritmo procede espandendo il grafo.
+\end_layout
+
+\begin_layout Enumerate
+non è stato raggiunto lo stato finale e non è possibile farlo tramite ulteriori
+ espansioni.
+ L'algoritmo termina in uno stato di 
+\shape italic
+failure
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+costruzione del grafo di pianificazione
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+function
+\series default
+ RelaxedGraphPlan(
+\begin_inset Formula $A$
+\end_inset
+
+,
+\begin_inset Formula $s_{i}$
+\end_inset
+
+,
+\begin_inset Formula $g$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+returns
+\series default
+ LayeredPlan, or failure
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+graph 
+\begin_inset Formula $\leftarrow$
+\end_inset
+
+ initialPlanningGraph(
+\begin_inset Formula $s_{i}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout LyX-Code
+goals 
+\begin_inset Formula $\leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $g$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\series bold
+loop do
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\noindent
+
+\series bold
+if
+\series default
+ goals all in last property layer of graph 
+\series bold
+then
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\series bold
+return
+\series default
+ LayeredPlan(graph)
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+else if
+\series default
+ noSolutionPossible(graph) 
+\series bold
+then
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\series bold
+return
+\series default
+ failure
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+else
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\paragraph_spacing single
+\noindent
+graph 
+\begin_inset Formula $\leftarrow$
+\end_inset
+
+ expand(graph, 
+\begin_inset Formula $A$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_inset
+
+
+\end_layout
 \begin_inset Branch NoChildDocument
 status collapsed
 
