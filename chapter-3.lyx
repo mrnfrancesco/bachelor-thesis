@@ -1077,6 +1077,188 @@ graph
 
 
 \end_layout
+
+\begin_layout Subsection
+Espansione del grafo
+\end_layout
+
+\begin_layout Definition
+Indichiamo con 
+\begin_inset Formula $G_{k}=\left(V_{k},E_{k}\right)$
+\end_inset
+
+ il grafo di pianificazione ottenuto al passo 
+\begin_inset Formula $k$
+\end_inset
+
+, dove:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $V_{k}=P_{0}\cup P_{1}\cup A_{1}\cup\ldots\cup P_{k}\cup A_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E_{k}=E_{pre}^{k}\cup E_{post}^{k}$
+\end_inset
+
+ con:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $E_{pre}^{k}=\left\{ (p,a)\colon p\in P_{k-1},a\in A_{k}\left[p\in preconditions(a)\right]\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E_{post}^{k}=\left\{ (a,p)\colon a\in A_{k},p\in P_{k}\left[p=postcondition(a)\right]\right\} $
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In un generico istante 
+\begin_inset Formula $k$
+\end_inset
+
+ l'algoritmo di espansione del grafo di pianificazione trova prima di tutto
+ l'insieme 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ delle azioni, che non facciano già parte di alcun livello precedente, le
+ cui precondizioni risultino soddisfatte dalle proprietà fino a quel momento
+ ottenute.
+\end_layout
+
+\begin_layout Standard
+A partire da queste si ottiene il livello delle proprietà 
+\begin_inset Formula $P_{k}$
+\end_inset
+
+ successivo costituito di tutte le proprietà del livello precedente più
+ quelle ottenute dalle postcondizioni delle azioni in 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A questo punto viene completato il grafo inserendo gli archi tra le proprietà
+ del livello precedente verso le azioni che le richiedono come precondizioni,
+ e quelli tra le azioni del livello attuale verso le proprietà che hanno
+ come postcondizioni.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+espansione del grafo di pianificazione
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+function
+\series default
+ expand(
+\begin_inset Formula $G_{k-1}$
+\end_inset
+
+,
+\begin_inset Formula $A$
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $A_{k}\leftarrow\left\{ a\in A\colon a\notin A_{j=1,\ldots,k-1}\land preconditions\left(a\right)\subseteq P_{k-1}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Formula $P_{k}\leftarrow\left\{ p\colon\exists a\in A_{k}\left[p=postcondition\left(a\right)\right]\right\} \cup P_{k-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+foreach 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ do:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\series bold
+\size small
+\begin_inset Formula $E_{pre}^{k}\leftarrow E_{pre}^{k-1}\cup\left\{ \left(p,a\right)\colon p\in P_{k-1}\land p\in preconditions\left(a\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+\size small
+\begin_inset Formula $E_{post}^{k}\leftarrow E_{post}^{k-1}\cup\left\{ \left(a,p\right)\colon p\in P_{k}\land p=postcondition\left(a\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_inset
+
+
+\end_layout
 \begin_inset Branch NoChildDocument
 status collapsed
 
