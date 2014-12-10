@@ -294,7 +294,7 @@ thepage
 \end_layout
 
 \begin_layout Chapter
-Algoritmo di automazione
+Algoritmo di pianificazione
 \end_layout
 
 \begin_layout Standard
@@ -336,28 +336,6 @@ Relaxed GraphPlan
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Il paragrafo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:relaxed-graphplan"
-
-\end_inset
-
- introduce le caratteristiche principali dell'algoritmo RGP facendone una
- panoramica ad alto livello.
- Il paragrafo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:istanza-del-problema"
-
-\end_inset
-
- presenta una descrizione dettagliata della struttura dati che ne permette
- l'implementazione.
- 
 \end_layout
 
 \begin_layout Section
@@ -541,11 +519,19 @@ Sia
 \begin_inset Formula $E_{pre}=\left\{ (p,a)\colon p\in P_{i-1},a\in A_{i}\left[p\in preconditions(a)\right]\right\} $
 \end_inset
 
+ per 
+\begin_inset Formula $i\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
 
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $E_{post}=\left\{ (a,p)\colon a\in A_{i},p\in P_{i}\left[p=postcondition(a)\right]\right\} $
+\end_inset
+
+ per 
+\begin_inset Formula $i\in\left\{ 1,\ldots,n\right\} $
 \end_inset
 
 
