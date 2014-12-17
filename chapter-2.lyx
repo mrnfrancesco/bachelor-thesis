@@ -15,7 +15,7 @@
  \renewcommand{\sectionautorefname}{sec.\negthinspace}%
  \renewcommand{\subsectionautorefname}{sec.\negthinspace}%
  \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}%
- \renewcommand{\figureautorefname}{Fig.\negthinspace}%
+ \renewcommand{\figureautorefname}{figura \negthinspace}%
  \renewcommand{\tableautorefname}{Tab.\negthinspace}%
 }
 \@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
@@ -45,6 +45,9 @@
 % enables calculations
 \usepackage{calc}
 
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
 % fancy page header/footer settings
 % for more information see section 9 of
 % ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
@@ -64,7 +67,7 @@
 customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language italian
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -87,8 +90,8 @@ customHeadersFooters
 \paperfontsize 12
 \spacing single
 \use_hyperref true
-\pdf_title "Your title"
-\pdf_author "Your name"
+\pdf_title "Documento > Impostazioni > Proprietà PDF"
+\pdf_author "Francesco Marano"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
@@ -133,7 +136,7 @@ customHeadersFooters
 \tocdepth 2
 \paragraph_separation skip
 \defskip medskip
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 2
 \paperpagestyle fancy
@@ -194,16 +197,6 @@ status collapsed
 
 \backslash
 rightmark
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Enable page headers and add the chapter to the header line.
 \end_layout
 
 \end_inset
