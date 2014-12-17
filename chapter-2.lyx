@@ -288,36 +288,264 @@ thepage
 Ontologia del framework
 \end_layout
 
+\begin_layout Standard
+In questo capitolo verrà data una descrizione approfondita del mondo di
+ interesse rappresentato dal framework e gli elementi che lo compongono.
+\end_layout
+
 \begin_layout Section
 Le proprietà
 \end_layout
 
 \begin_layout Standard
-bla bla 
+Ci si può riferire al concetto di proprietà come sinonimo di predicato,
+ attributo; si tratta cioè di un'informazione a cui ci stiamo riferendo
+ e che caratterizza il nostro target.
+ Si concretizza in una coppia chiave-valore in cui la chiave rappresenta
+ in modo compatto e facilmente leggibile il nome della proprietà e la gerarchia
+ di appartenenza; il valore può essere una semplice stringa, un numero,
+ o qualsiasi altro tipo sia primitivo che complesso, e rappresenta l'informazion
+e vera e propria.
 \end_layout
 
 \begin_layout Standard
-bla bla bla bla bla bla bla bla bla bla bla PPS
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "PPS"
-description "Polyphenylene sulfide"
+Un esempio di rappresentazione di una proprietà e del suo valore potrebbe
+ essere: 
+\shape italic
+website.cms.opencart.version = 1.5.6.4
+\shape default
 
+\begin_inset Newline newline
 \end_inset
 
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
- bla bla bla bla bla bla bla, see 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rich1921,Marq1963"
+In questo caso stiamo dicendo che la versione del cms opencart con cui è
+ stato costruito il sito web target è la 1.5.6.4
+\begin_inset Newline newline
+\end_inset
+
+Prendendo invece da esempio la proprietà 
+\shape italic
+website.cms.opencart.admin.credentials
+\shape default
+ vediamo come il valore sia difficilmente rappresentabile con un tipo semplice,
+ ma più facilmente tramite un dizionario come 
+\shape italic
+{username: 'admin', password: 'secret'}
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Per chiarire subito questi concetti si consideri la 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gerarchia-delle-proprietà"
 
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[level distance=1cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+	level 1/.style={sibling distance=4cm},
+\end_layout
+
+\begin_layout Plain Layout
+
+	level 2/.style={sibling distance=2cm}]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node {.}
+\end_layout
+
+\begin_layout Plain Layout
+
+		child {node {http}
+\end_layout
+
+\begin_layout Plain Layout
+
+			child {node {server}
+\end_layout
+
+\begin_layout Plain Layout
+
+				child {node {name}}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		child {node {website}
+\end_layout
+
+\begin_layout Plain Layout
+
+			child {node {cms}
+\end_layout
+
+\begin_layout Plain Layout
+
+				child {node {name}}
+\end_layout
+
+\begin_layout Plain Layout
+
+				child {node {opencart}
+\end_layout
+
+\begin_layout Plain Layout
+
+					child {node {admin}
+\end_layout
+
+\begin_layout Plain Layout
+
+						child {node {directory}}
+\end_layout
+
+\begin_layout Plain Layout
+
+						child {node {credentials}}
+\end_layout
+
+\begin_layout Plain Layout
+
+					}
+\end_layout
+
+\begin_layout Plain Layout
+
+					child {node {version}}
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gerarchia-delle-proprietà"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Esempio di gerarchia delle proprietà
+\end_layout
+
+\end_inset
+
+Esempio di gerarchia delle proprietà
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una proprietà, quindi, può essere vista come una foglia dell'albero che
+ rappresenta la gerarchia delle proprietà.
+ È chiaro da questo che più foglie, quindi più proprietà, possono avere
+ lo stesso nome pur riferendosi a concetti diversi; la disambiguazione avviene
+ tramite i nodi intermedi del cammino dalla radice alla foglia.
+\begin_inset Newline newline
+\end_inset
+
+Una possibile notazione con cui rappresentare questo cammino, come abbiamo
+ visto precedentemente, è la cosìdetta 
+\begin_inset Quotes fld
+\end_inset
+
+notazione punto
+\begin_inset Quotes frd
+\end_inset
+
+, in cui si scrive il nome di ogni nodo seguito da un punto, a formare una
+ stringa che esplicita l'intera gerarchia della proprietà.
+\end_layout
+
+\begin_layout Standard
+All'atto pratico le proprietà se da un lato sono lo strumento con cui l'utente
+ può rappresentare un problema di pianificazione, dall'altro sono anche
+ il modo in cui i componenti esprimono le loro dipendenze e la loro funzionalità
+, e che permettono l'automazione del processo di costruzione di una soluzione
+ al problema specificato.
 \end_layout
 
 \begin_layout Section
