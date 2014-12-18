@@ -330,7 +330,7 @@ website.cms.opencart.admin.credentials
  vediamo come il valore sia difficilmente rappresentabile con un tipo semplice,
  ma più facilmente tramite un dizionario come 
 \shape italic
-{username: 'admin', password: 'secret'}
+{username: admin, password: secret}
 \shape default
 .
 \end_layout
@@ -538,6 +538,77 @@ notazione punto
 
 , in cui si scrive il nome di ogni nodo seguito da un punto, a formare una
  stringa che esplicita l'intera gerarchia della proprietà.
+\end_layout
+
+\begin_layout Standard
+Le proprietà possono essere di due tipi:
+\end_layout
+
+\begin_layout Description
+semplici: sono le proprietà che seguono la descrizione finora fornita: sono
+ foglie dell'albero della gerarchia delle proprietà con associato un valore
+ di tipo semplice o complesso.
+\end_layout
+
+\begin_layout Description
+vincoli
+\begin_inset space ~
+\end_inset
+
+
+\shape italic
+(constraint)
+\shape default
+: sono rappresentati da una tripla 
+\shape italic
+proprietà-valore atteso-funzione di confronto
+\shape default
+.
+ Sono proprietà utilizzate quando non si vuole conoscere il valore di un
+ attributo del target, ma si vuole essere certi che questo rispetti certe
+ regole, ad esempio di uguaglianza.
+\begin_inset Newline newline
+\end_inset
+
+La 
+\shape italic
+proprietà
+\shape default
+ è il nome di una proprietà semplice espressa in notazione punto; il 
+\shape italic
+valore atteso
+\shape default
+ è il valore che vogliamo confrontare e può chiaramente essere sia di tipo
+ semplice che complesso; la 
+\shape italic
+funzione di confronto
+\shape default
+ è una delle funzioni basilari per il confronto tra valori anche di tipo
+ diverso, quindi 
+\begin_inset Formula $=$
+\end_inset
+
+, 
+\begin_inset Formula $\neq$
+\end_inset
+
+, 
+\begin_inset Formula $<$
+\end_inset
+
+, 
+\begin_inset Formula $>$
+\end_inset
+
+, 
+\begin_inset Formula $\leq$
+\end_inset
+
+, 
+\begin_inset Formula $\geq$
+\end_inset
+
+, ecc.
 \end_layout
 
 \begin_layout Standard
