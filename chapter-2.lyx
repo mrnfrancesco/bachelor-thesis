@@ -624,7 +624,408 @@ I componenti
 \end_layout
 
 \begin_layout Standard
-bla bla 
+I componenti rappresentano il cuore del framework.
+ Sono dei piccoli software che, eventualmente sulla base dei valori di alcune
+ proprietà, eseguono una porzione più o meno piccola di codice in grado
+ di fornire il valore di una nuova proprietà.
+\begin_inset Newline newline
+\end_inset
+
+Ogni componente, quindi, espone le seguenti informazioni:
+\end_layout
+
+\begin_layout Description
+autori: una lista di informazioni degli autori del componente.
+ Si tratta principalmente di informazioni di contatto nel caso si voglia
+ comunicare con l'autore sia per segnalare problemi che per qualsiasi altra
+ comunicazione.
+\begin_inset Newline newline
+\end_inset
+
+Le informazioni fornite si dividono in obbligatorie e non:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+obbligatorie: indirizzo email
+\end_layout
+
+\begin_layout Description
+opzionali: nome completo, nickname, URL
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "URL"
+description "Uniform Resource Locator"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+data
+\begin_inset space ~
+\end_inset
+
+di
+\begin_inset space ~
+\end_inset
+
+rilascio: data in cui il componente è stato reso pubblico.
+\end_layout
+
+\begin_layout Description
+data
+\begin_inset space ~
+\end_inset
+
+di
+\begin_inset space ~
+\end_inset
+
+ultima
+\begin_inset space ~
+\end_inset
+
+modifica: ultima data in cui il componente è stato aggiornato.
+\end_layout
+
+\begin_layout Description
+versione: non è una informazione necessaria e se non fornita assume il valore
+ unknown (sconosciuta); è un numero, un nome o un qualsiasi identificativo
+ della versione del componente.
+ È particolarmente utile quando si vogliono eseguire aggiornamenti automatici.
+\end_layout
+
+\begin_layout Description
+precondizioni: una lista, eventualmente vuota, di proprietà semplici o vincoli
+ che esprimono le dipendenze del componente.
+ L'esplicitazione delle precondizioni permette il meccanismo di automazione
+ e garantisce al codice eseguibile del componente di conoscere il valore
+ delle proprietà indicate al momento dell'esecuzione.
+\begin_inset Newline newline
+\end_inset
+
+Una lista di precondizioni vuota indica che il componente non ha bisogno
+ di alcun input, ma è in grado di svolgere il suo compito in modo autonomo.
+\end_layout
+
+\begin_layout Description
+postcondizione: non è un valore esplicitato direttamente dall'autore del
+ componente, ma è ricavato direttamente dal framework durante l'esecuzione
+ in base alla posizione del componente all'interno della struttura dei package
+ dei componenti.
+\begin_inset Newline newline
+\end_inset
+
+Indica il valore di quale proprietà verrà fornito al momento dell'esecuzione
+ del componente.
+\end_layout
+
+\begin_layout Standard
+Da notare il fatto che ogni componente può avere più precondizioni, ma ha
+ sempre e solamente una postcondizione.
+\begin_inset Newline newline
+\end_inset
+
+È certamente vero che un componente potrebbe essere in grado di fornire
+ più di una proprietà, ma permettere questo significherebbe permettere la
+ scrittura di componenti complessi che non costituiscono più passi elementari.
+ L'atomicità dei componenti infatti è condizione essenziale al fine di garantirn
+e il riutilizzo durante il processo di automazione.
+ Nonostante questo approccio porti a un maggior numero di componenti e a
+ maggiori tempi di esecuzione, risulta comunque chiaro che componenti troppo
+ specializzati sono difficili da inserire all'interno di una catena sfavorendo
+ quindi il riutilizzo, concetto di fondamentale importanza in questo contesto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[level distance=1cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+	level 1/.style={sibling distance=4cm},
+\end_layout
+
+\begin_layout Plain Layout
+
+	level 2/.style={sibling distance=2cm}]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tikzstyle{leaf}=[circle,fill=black!25,minimum size=17pt,inner sep=0pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node {.}
+\end_layout
+
+\begin_layout Plain Layout
+
+		child {node {http}
+\end_layout
+
+\begin_layout Plain Layout
+
+			child {node {server}
+\end_layout
+
+\begin_layout Plain Layout
+
+				child {node {name}
+\end_layout
+
+\begin_layout Plain Layout
+
+					child {node[leaf] {c1}}
+\end_layout
+
+\begin_layout Plain Layout
+
+					child {node[leaf] {c2}}
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		child {node {website}
+\end_layout
+
+\begin_layout Plain Layout
+
+			child {node {cms}
+\end_layout
+
+\begin_layout Plain Layout
+
+				child {node {opencart}
+\end_layout
+
+\begin_layout Plain Layout
+
+					child {node {version}
+\end_layout
+
+\begin_layout Plain Layout
+
+						child {node[leaf] {c3}}
+\end_layout
+
+\begin_layout Plain Layout
+
+					}
+\end_layout
+
+\begin_layout Plain Layout
+
+					child {node {admin}
+\end_layout
+
+\begin_layout Plain Layout
+
+						child {node {directory}
+\end_layout
+
+\begin_layout Plain Layout
+
+							child {node[leaf] {c4}}
+\end_layout
+
+\begin_layout Plain Layout
+
+							child {node[leaf] {c5}}
+\end_layout
+
+\begin_layout Plain Layout
+
+						}
+\end_layout
+
+\begin_layout Plain Layout
+
+					}
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gerarchia-dei-componenti"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Esempio di gerarchia dei componenti
+\end_layout
+
+\end_inset
+
+
+\size footnotesize
+La figura mostra come a ogni proprietà possano essere associati più componenti
+ che la forniscono (le foglie nell'albero), ma allo stesso modo potrebbe
+ non essere disponibile alcun componente (vedi confronto con 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gerarchia-delle-proprietà"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ogni componente implementa una semplice interfaccia che espone al framework
+ un solo metodo, 
+\shape italic
+run
+\shape default
+, che contiene il codice da eseguire per fornire la postcondizione.
+ È chiaro che ogni componente all'interno dello stesso package, cioè che
+ fornisce il valore della stessa proprietà, deve seguire alcune norme riguardo
+ il tipo di ritorno; in particolare se due componenti forniscono il valore
+ della stessa proprietà, allora devono fornirlo non solo dello stesso tipo,
+ ma anche contenente le stesse informazioni.
+\end_layout
+
+\begin_layout Standard
+Chiariamo con un esempio:
+\begin_inset Newline newline
+\end_inset
+
+Se chiediamo la proprietà 
+\shape italic
+website.cms.opencart.admin.credentials
+\shape default
+, cioè le credenziali per l'accesso al pannello di amministrazione, ci aspettiam
+o che ci vengano restituiti sia la 
+\shape italic
+username
+\shape default
+ che la 
+\shape italic
+password
+\shape default
+, nessuna informazione in più e nessuna in meno; inoltre ci aspettiamo anche
+ che questi dati siano riconoscibili, cioè che una volta ottenuti si possa
+ distinguerli tra loro.
+ È quindi chiaro che in questo caso l'unica struttura dati che fornisce
+ questo meccanismo è il dizionario.
+ Quindi quello che il framework garantisce è che se definiamo che il tipo
+ di ritorno per la proprietà 
+\shape italic
+website.cms.opencart.admin.credentials 
+\shape default
+è un dizionario contenente le chiavi 
+\shape italic
+username
+\shape default
+ e 
+\shape italic
+password
+\shape default
+, allora tutti i componenti che fonriscono tale proprietà sono conformi
+ a tale scelta.
+\end_layout
+
+\begin_layout Standard
+Questa garanzia si mostra necessaria in quanto ogni componente all'interno
+ dell'ecosistema di componenti, è un'entità autonoma che esplicita il nome
+ delle proprietà di cui necessita, ma non da quale componente specifico
+ derivino.
 \end_layout
 
 \begin_layout Standard
