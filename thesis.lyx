@@ -29,6 +29,8 @@
 
 % enables graph drawing
 \usepackage{tikz}
+\usepackage{tikz-uml}
+\tikzumlset{fill package=blue!5}
 
 % the pages of the TOC is numbered roman
 % and a pdf-bookmark for the TOC is added
@@ -152,6 +154,11 @@ theorems-chap-bytype
 \selected 1
 \filename_suffix 0
 \color #55aa00
+\end_branch
+\branch chapter-4
+\selected 1
+\filename_suffix 0
+\color #55007f
 \end_branch
 \index Index
 \shortcut idx
@@ -582,6 +589,24 @@ filename "chapter-3.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch chapter-4
+status open
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter-4.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_inset Newpage cleardoublepage
 \end_inset
 
