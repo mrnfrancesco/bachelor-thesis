@@ -1,0 +1,2482 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+\AtBeginDocument{%
+ \renewcommand{\ref}[1]{\mbox{\autoref{#1}}}
+}
+\def\refnamechanges{%
+ \renewcommand*{\equationautorefname}[1]{}%
+ \renewcommand{\sectionautorefname}{sec.\negthinspace}%
+ \renewcommand{\subsectionautorefname}{sec.\negthinspace}%
+ \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}%
+ \renewcommand{\figureautorefname}{Fig.\negthinspace}%
+ \renewcommand{\tableautorefname}{Tab.\negthinspace}%
+}
+\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% http://mirrors.ctan.org/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\tikzumlset{fill package=blue!5}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage,fleqn
+\use_default_options true
+\master thesis.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman lmodern
+\font_sans lmss
+\font_typewriter lmtt
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Documento > Impostazioni > Proprietà PDF"
+\pdf_author "Francesco Marano"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\branch NoChildDocument
+\selected 0
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\quotes_language french
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Architettura del framework
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:architettura-framework"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo capitolo verrà data una panoramica dell'architettura del framework
+ a un livello di dettaglio tale da poter comprendere la complessità delle
+ interazioni tra le entità che entrano in gioco pur senza addentrarsi in
+ tediose specifiche né tecniche né implementative tipiche del linguaggio
+ utilizzato.
+\end_layout
+
+\begin_layout Standard
+Nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:diagramma-dei-package"
+
+\end_inset
+
+ verrà mostrata la struttura dei package e i moduli che costituiscono il
+ framework.
+\end_layout
+
+\begin_layout Standard
+Nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:diagramma-delle-classi"
+
+\end_inset
+
+ verranno mostrate tutte le classi e le interfaccie che espongono.
+ Di ogni classe verrà data una breve spiegazione dell'utilizzo, da tenere
+ a mente per meglio comprendere gli esempi pratici forniti nel capitolo
+ successivo.
+\end_layout
+
+\begin_layout Standard
+Nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:diagramma-di-sequenza"
+
+\end_inset
+
+ verrà mostrato un diagramma di sequenza che mostra schematicamente il funzionam
+ento del framework dalla definizione del problema fino all'estrazione della
+ soluzione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagramma dei package
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagramma-dei-package"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: inserire una descrizione del diagramma dei package
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{umlpackage}{wat}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{umlpackage}{lib}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=0,y=0, width=5ex]{conf};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=5,y=0, width=5ex]{clients};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=0,y=-3, width=5ex]{search};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=5,y=-3, width=5ex]{exceptions};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=5,y=-6, width=5ex]{components};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=10,y=-6, width=5ex]{properties};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=1.8,y=-8, width=5ex]{models};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=5,y=-10, width=5ex]{graph};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umlbasiccomponent[x=12,y=-11.5, width=5ex]{shortcuts};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep{clients}{conf};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[stereo=access, pos stereo=0.4]{clients}{exceptions};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[stereo=access]{search}{components};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[stereo=access]{search}{exceptions};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[geometry=-|, stereo=access, pos stereo=1]{components}{models};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[stereo=import, pos stereo=0.45]{components}{properties};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[stereo=access, pos stereo=0.65]{components}{exceptions};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[geometry=-|]{graph}{search};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep{graph}{components};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[geometry=|-, stereo=access, pos stereo=1.5]{graph}{shortcuts};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[geometry=-|]{graph}{properties};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[geometry=|-, stereo=access]{shortcuts}{properties};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+umldep[geometry=|-, stereo=access, pos stereo=0.8]{properties}{exceptions};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{umlpackage}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{umlpackage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:diagramma-dei-package"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Diagramma dei package
+\end_layout
+
+\end_inset
+
+Diagramma dei package
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagramma delle classi
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagramma-delle-classi"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Inserire un diagramma delle classi con tutte le classi vuote (?)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.clients
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.clients"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=5,y=0, type=abstract]{CurlClient}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_new
+\backslash
+_(pycurl
+\backslash
+_class : class) : class
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=0,y=-4]{Curl}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_new
+\backslash
+_() : class
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=5,y=-4]{CurlMulti}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_new
+\backslash
+_() : class
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=10,y=-4]{CurlShare}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_new
+\backslash
+_() : class
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-|]{Curl}{CurlClient}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit{CurlMulti}{CurlClient}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-|]{CurlShare}{CurlClient}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:class-diagram-wat.lib.clients"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+wat.lib.clients
+\end_layout
+
+\end_inset
+
+Diagramma delle classi per il package wat.lib.clients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il package 
+\emph on
+wat.lib.clients
+\emph default
+ contiene la definizione di tutte le classi necessarie per effettuare delle
+ connessioni remote.
+ In particolare contiene dei 
+\emph on
+wrapper
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+dall'inglese 
+\begin_inset Quotes fld
+\end_inset
+
+involucro
+\begin_inset Quotes frd
+\end_inset
+
+, sono delle classi che incapsulano le funzionalità di un'altra classe o
+ componente per aggiungerne di proprie, ad esempio per semplificarne l'utilizzo.
+\end_layout
+
+\end_inset
+
+ delle classi 
+\emph on
+Curl
+\emph default
+, 
+\emph on
+CurlMulti
+\emph default
+ e 
+\emph on
+CurlShare
+\emph default
+ del modulo 
+\emph on
+pycurl
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+modulo che fornisce un binding tra il linguaggio Python e la libreria libcurl
+\end_layout
+
+\end_inset
+
+.
+ Queste classi aggiungono alle normali funzionalità offerte l'inizializzazione
+ sulla base dei valori di default forniti dalla configurazione del framework
+ (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:wat.lib.conf"
+
+\end_inset
+
+) e quelli forniti dall'utente attraverso l'interfaccia preferita, tra quelle
+ fornite.
+\end_layout
+
+\begin_layout Standard
+Questo meccanismo permette a ogni componente di ottenere un'istanza della
+ classe già inizializzata secondo le preferenze dell'utente; in questo modo
+ si minimizza l'impatto sul codice dei componenti nel momento in cui dovessero
+ avvenire dei cambiamenti anche significativi alla libreria del framework.
+\end_layout
+
+\begin_layout Standard
+Da notare, inoltre, che lo sviluppatore può decidere anche di non sfruttare
+ questo meccanismo.
+ In questo caso è suo compito inizializzare l'istanza del client e mantenerne
+ la compatibilità in caso di aggiornamenti del framework.
+\begin_inset Newline newline
+\end_inset
+
+Un motivo per cui si potrebbe fare questa scelta è, ad esempio, la difficoltà
+ del primo approccio con la libreria pycurl rispetto ad alternative più
+ semplici come requests.
+ Si è scelto di utilizzare una libreria più complessa per diversi motivi,
+ in particolare:
+\end_layout
+
+\begin_layout Itemize
+costituisce lo standard de facto delle librerie lato client
+\end_layout
+
+\begin_layout Itemize
+supporta tutti i protocolli più utilizzati
+\end_layout
+
+\begin_layout Itemize
+il suo utilizzo è uguale in tutti i linguaggi, a meno di eccezioni sintattiche
+\end_layout
+
+\begin_layout Subsection
+wat.lib.components
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.components"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[type=metaclass]{MetaComponent}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+umlstatic{+ name : str}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+umlstatic{+ description : str}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+umlstatic{+ postcondition : wat.lib.properties.Property}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(cls : class, name : str, bases : list, attr : dict)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_str
+\backslash
+_() : str
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+umlvirt{+ run() : None};
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+MetaComponent
+\end_layout
+
+\end_inset
+
+MetaComponent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[type=abstract]{WatComponent}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ execute()
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+umlstatic{+ precondition(prop : str) : object}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+umlstatic{+ register(prop
+\backslash
+_value : object) : None}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ save
+\backslash
+_as
+\backslash
+_attribute(name : str) : function
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+WatComponent
+\end_layout
+
+\end_inset
+
+WatComponent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.conf
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.conf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.exceptions
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.exceptions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni generiche
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:eccezioni-generiche"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{WatError}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		- error
+\backslash
+_dict : dict
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- error
+\backslash
+_list : list
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ message
+\backslash
+_dict : dict
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ messages : list
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(message : object, params : dict = None, code : str = None)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ update
+\backslash
+_error
+\backslash
+_dict(error
+\backslash
+_dict : dict) : dict
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_iter
+\backslash
+_() : generator
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_str
+\backslash
+_() : str
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_repr
+\backslash
+_() : str
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+WatError
+\end_layout
+
+\end_inset
+
+WatError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rappresenta l'eccezione madre di tutte le eccezioni; ogni errore generato
+ durante l'esecuzione del framework utilizza, direttamente o indirettamente,
+ a questa classe.
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+WatError
+\emph default
+ permette di specificare il messaggio dell'errore come un singolo errore,
+ una lista di errori, oppure un dizionario che associa a un campo una lista
+ di errori.
+ Quello che definiamo come errore può essere sia una semplice stringa sia
+ un oggetto di tipo 
+\emph on
+WatError
+\emph default
+ con a sua volta impostato un messaggio di errore; quello che definiamo
+ come lista o dizionario può essere sia un oggetto di tipo lista (
+\shape italic
+list
+\shape default
+) o dizionario (
+\emph on
+dict
+\emph default
+), oppure un oggetto di tipo WatError con impostato rispettivamente il campo
+ 
+\shape italic
+error_list
+\shape default
+ o 
+\shape italic
+error_dict
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1.5in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass{ComponentError};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ComponentError
+\end_layout
+
+\end_inset
+
+ComponentError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica un generico errore riscontrato da un componente.
+ Questa classe non è utilizzata direttamente, ma tramite le sottoclassi
+ che meglio specificano il tipo di errore.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1.5in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass{PropertyError};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+PropertyError
+\end_layout
+
+\end_inset
+
+PropertyError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica un generico errore riscontrato durante l'accesso o l'utilizzo a una
+ proprietà.
+ Questa classe non è utilizzata direttamente, ma tramite le sottoclassi
+ che meglio specificano il tipo di errore.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti errori
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{ClientError}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(pycurl
+\backslash
+_error : Error)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ClientError
+\end_layout
+
+\end_inset
+
+ClientError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che il client utilizzato per la connessione remota ha incontrato
+ un errore imprevisto.
+ Questo potrebbe avvenire ad esempio quando si cerca di comunicare con un
+ target online senza una connessione a internet.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti fallimenti
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{ComponentFailure}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(message : object, params : dict)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ComponentFailure
+\end_layout
+
+\end_inset
+
+ComponentFailure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che il componente ha fallito in uno qualsiasi dei momenti del suo
+ ciclo di vita.
+ Generalmente è utilizzato per indicare che è stato impossibile ottenere
+ il valore della proprietà indicata nella postcondizione; il motivo specifico
+ è indicato con il parametro 
+\emph on
+message
+\emph default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{PropertyNotAchievedError}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(prop : str)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+PropertyNotAchievedError
+\end_layout
+
+\end_inset
+
+PropertyNotAchievedError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che nessuno dei componenti selezionati è stato in grado di ottenere
+ il valore della proprietà specificata.
+ È un'eccezione che si verifica tanto più raramente quanti più sono i componenti
+ con uguale postcondizione.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti mancanze
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{PropertyDoesNotExist}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(prop : str)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+PropertyDoesNotExist
+\end_layout
+
+\end_inset
+
+PropertyDoesNotExist
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che è stata richiesta una proprietà che non esiste.
+ Tipicamente si presenta quando l'utente richiede che venga fornito il valore
+ di una proprietà per cui non esiste alcun componente che la ha come postcondizi
+one.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti errori di configurazione
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{ImproperlyConfigured}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(message : object, params : dict)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ImproperlyConfigured
+\end_layout
+
+\end_inset
+
+ImproperlyConfigured
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che il framework non è stato configurato correttamente.
+ Questo avviene quando si impostano delle proprietà di default per il client
+ per le connessioni remote, ma queste non risultano valide.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti dati non validi
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{InvalidTypeError}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(param : object, expected : object)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+InvalidTypeError
+\end_layout
+
+\end_inset
+
+InvalidTypeError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che il parametro specificato non è di nessuno dei tipi attesi.
+ Questo errore è generato ogni qual volta si ha la necessità di conoscere
+ il valore di un parametro per poter proseguire, quindi non è accettabile
+ un parametro di un tipo non corretto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti violazioni di vincoli
+\end_layout
+
+\begin_layout Subsection
+wat.lib.graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.models
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.models"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.properties
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.properties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.search
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.search"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wat.lib.shortcuts
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.shortcuts"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Ci va anche la parte ui.cli?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagramma di sequenza
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagramma-di-sequenza"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: solo un esempio, ma completo, di tutta la sequenza dall'inizio alla
+ fine
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch NoChildDocument
+status collapsed
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Bibliography"
+options "alpha"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+set_width "custom"
+width "2.5cm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
