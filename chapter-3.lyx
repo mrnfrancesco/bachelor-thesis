@@ -372,7 +372,7 @@ reference "sec:descrizione-implementativa"
 
 \end_inset
 
- viene fornita una descrizione implementativa di RGP attraverso sia spiegazioni
+ verrà fornita una descrizione implementativa di RGP attraverso sia spiegazioni
  che pseudocodice delle funzioni che costituiscono il cuore dell'algoritmo;
  in particolare verranno illustrati: la costruzione del grafo di pianificazione
  (
