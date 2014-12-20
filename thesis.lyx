@@ -739,6 +739,7 @@ leftmark
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
+btprint "btPrintAll"
 bibfiles "Bibliography"
 options "alpha"
 
@@ -825,6 +826,22 @@ Indice degli algoritmi
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{Elenco degli algoritmi} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset FloatList algorithm
 
 \end_inset
@@ -855,6 +872,22 @@ status open
 
 \begin_layout Plain Layout
 Indice delle figure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{Elenco delle figure} 
 \end_layout
 
 \end_inset
