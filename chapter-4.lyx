@@ -18,7 +18,7 @@
  \renewcommand{\figureautorefname}{Fig.\negthinspace}%
  \renewcommand{\tableautorefname}{Tab.\negthinspace}%
 }
-\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\@ifpackageloaded{babel}{\addto\extrasitalian{\refnamechanges}}{\refnamechanges}
 
 % in case somebody want to have the label "Equation"
 %\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
@@ -362,16 +362,45 @@ name "sec:diagramma-dei-package"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: inserire una descrizione del diagramma dei package
-\end_layout
+I package che costituiscono il framework sono fondamentalmente due: 
+\emph on
+wat
+\emph default
+ e 
+\emph on
+lib
+\emph default
+.
+ Quest'ultimo raccoglie in sé tutti i moduli che costituiscono la libreria
+ del framework, cioè l'insieme di classi e procedure che definiscono il
+ funzionamento del framework e tutti i suoi vincoli.
+ Il package 
+\emph on
+wat
+\emph default
+ invece contiene, oltre a 
+\emph on
+lib
+\emph default
+, tutti quei package, cartelle o file utili per dare modo all'utente di
+ interfacciarsi con il framework; ad esempio il package che contiene la
+ GUI
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "GUI"
+description "Graphical User Interface, Interfaccia grafica utente"
 
 \end_inset
 
+ e/o la CLI
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CLI"
+description "Command Line Interface, Interfaccia a riga di comando"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -404,13 +433,6 @@ begin{umlpackage}{wat}
 		
 \backslash
 begin{umlpackage}{lib}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-umlbasiccomponent[x=0,y=0, width=5ex]{conf};
 \end_layout
 
 \begin_layout Plain Layout
@@ -471,13 +493,6 @@ umlbasiccomponent[x=12,y=-11.5, width=5ex]{shortcuts};
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-umldep{clients}{conf};
 \end_layout
 
 \begin_layout Plain Layout
