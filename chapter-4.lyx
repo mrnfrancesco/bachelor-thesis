@@ -3403,6 +3403,8 @@ NoOpAction
  degli strati precedenti oltre che quelle ottenute dalle azioni sullo stesso
  livello.
 \end_layout
+
+\begin_layout Subsection
 wat.lib.models
 \begin_inset CommandInset label
 LatexCommand label
@@ -3411,6 +3413,182 @@ name "sub:wat.lib.models"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{Author}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ email : str
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ name : str = None
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ nickname : str = None
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ url : str = None
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(email : str, name : str, nickname : str, url : str)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_eq
+\backslash
+_(other : Author) : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_str
+\backslash
+_() : str
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_repr
+\backslash
+_() : str
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Author
+\end_layout
+
+\end_inset
+
+Author
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo scopo della classe 
+\emph on
+Author
+\emph default
+ non è quello di fornire funzionalità come le altre classi, ma solamente
+ quello di raggruppare e fornire una rappresentazione in formato testuale
+ delle informazioni sull'autore di un componente.
+\end_layout
+
+\begin_layout Standard
+Questa classe è stata pensata principalmente per permettere di implementare
+ ricerche più mirate nell'ecosistema dei componenti utilizzando informazioni
+ specifiche anche sull'autore.
 \end_layout
 
 \begin_layout Subsection
