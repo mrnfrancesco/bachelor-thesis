@@ -306,7 +306,7 @@ In questo capitolo verranno presentati in dettaglio i diversi elementi che
  più noto algoritmo di pianificazione GraphPlan 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "wiki:GraphPlan"
+key "publication:GraphPlan"
 
 \end_inset
 
