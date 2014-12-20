@@ -953,7 +953,23 @@ name "sub:wat.lib.components"
 \end_layout
 
 \begin_layout Standard
+All'interno di questo modulo sono presenti tutte le classi e le procedure
+ che permettono di definire programmaticamente il concetto di 
+\emph on
+componente
+\emph default
+.
+ Ogni classe che venisse sviluppata seguendo le direttive di questo modulo
+ sarebbe un componente valido, quindi utilizzabile, all'interno del framework.
+\end_layout
+
+\begin_layout Standard
+Vediamo più in dettaglio quelli che sono i principali attori:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1098,7 +1114,21 @@ MetaComponent
 \end_layout
 
 \begin_layout Standard
+
+\emph on
+MetaComponent
+\emph default
+ è una metaclasse, cioè una classe che definisce ed eventualmente varia
+ il comportamento delle classi che la utilizzano.
+ In questo contesto la metaclasse ha due ruoli: si occupa da una parte di
+ controllare l'attinenza dei componenti agli standard, dall'altra inserisce
+ degli attributi nella classe il cui valore è ricavato automaticamente sulla
+ base di altri parametri forniti implicitamente dalla classe stessa.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1155,19 +1185,6 @@ umlstatic{+ precondition(prop : str) : object}
 umlstatic{+ register(prop
 \backslash
 _value : object) : None}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-		+ save
-\backslash
-_as
-\backslash
-_attribute(name : str) : function
 \end_layout
 
 \begin_layout Plain Layout
@@ -1213,15 +1230,15 @@ WatComponent
 
 \end_layout
 
-\begin_layout Subsection
-wat.lib.conf
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:wat.lib.conf"
+\begin_layout Standard
 
-\end_inset
-
-
+\emph on
+WatComponent
+\emph default
+ è la superclasse di tutti i componenti.
+ Definisce sia alcuni metodi generici di utilità che vengono messi a disposizion
+e di ogni componente, sia un metodo che permette la corretta esecuzione
+ del componente e il controllo del valore restituito.
 \end_layout
 
 \begin_layout Subsection
