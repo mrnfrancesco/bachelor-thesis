@@ -286,6 +286,13 @@ thepage
 
 \begin_layout Chapter
 Ontologia del framework
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:ontologia-framework"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -295,6 +302,13 @@ In questo capitolo verrà data una descrizione approfondita del mondo di
 
 \begin_layout Section
 Le proprietà
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:proprietà-constraint"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -621,6 +635,13 @@ All'atto pratico le proprietà se da un lato sono lo strumento con cui l'utente
 
 \begin_layout Section
 I componenti
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:componenti"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

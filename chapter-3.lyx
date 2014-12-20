@@ -142,7 +142,7 @@ theorems-chap-bytype
 \papercolumns 1
 \papersides 2
 \paperpagestyle fancy
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -288,6 +288,13 @@ thepage
 
 \begin_layout Chapter
 Algoritmo di pianificazione
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:algoritmo-di-pianificazione"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2273,16 +2280,6 @@ Se
 
 \begin_layout Proof
 Vero per costruzione
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-TODO: verificare la possibilità di accettare questa come dimostrazione valida.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection*
