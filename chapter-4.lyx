@@ -649,19 +649,6 @@ name "sec:diagramma-delle-classi"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Inserire un diagramma delle classi con tutte le classi vuote (?)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 wat.lib.clients
 \begin_inset CommandInset label
