@@ -2844,6 +2844,565 @@ reference "sec:proprietà-constraint"
 \end_layout
 
 \begin_layout Subsection
+wat.lib.graph
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:wat.lib.graph"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'insieme delle classi mostrate nella figura seguente e la loro interazione
+ permettono l'automazione del processo di ricerca di pattern di esecuzione
+ di componenti una volta definito il problema di pianificazione di interesse.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=0,y=0]{RelaxedGraphPlan}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ initial
+\backslash
+_state : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ goal
+\backslash
+_state : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ action
+\backslash
+_layers : list
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ solution : LayeredPlan
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- uncollected
+\backslash
+_actions : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- collected
+\backslash
+_actions : set
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(initial
+\backslash
+_state : set, goal
+\backslash
+_state : set)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- expand() : None
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- goal
+\backslash
+_reached() : None
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- solution
+\backslash
+_possible() : None
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=0,y=-5.5]{LayeredPlan}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ action
+\backslash
+_layers : list
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		- goal
+\backslash
+_state : list
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(planning
+\backslash
+_graph : RelaxedGraphPlan)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ execute() : None
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=8.5,y=-5.5]{ActionLayer}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ actions : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ equivalent
+\backslash
+_actions : dict
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ preconditions : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ postconditions : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ property
+\backslash
+_layer : set
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(actions : set)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_len
+\backslash
+_() : int
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ add(action : object) : None
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ remove(action : object) : None
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=0,y=-9.5]{NoOpAction}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ preconditions : set
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ postcondition : wat.lib.properties.Property
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(prop : wat.lib.properties.Property)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_repr
+\backslash
+_() : str
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlassoc{LayeredPlan}{RelaxedGraphPlan};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlcompo{ActionLayer}{LayeredPlan};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlcompo[geometry=|-]{ActionLayer}{RelaxedGraphPlan};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlcompo[geometry=-|]{NoOpAction}{ActionLayer};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+wat.lib.graph
+\end_layout
+
+\end_inset
+
+Le classi nel modulo wat.lib.graph
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I lettori più attenti avranno sicuramente notato due apparenti discrepanze
+ rispetto a quanto detto nel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:algoritmo-di-pianificazione"
+
+\end_inset
+
+ (in particolare 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:grafo-di-pianificazione"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+l'assenza di una classe atta a rappresentare un 
+\emph on
+PropertyLayer
+\end_layout
+
+\begin_layout Itemize
+la presenza di una classe, 
+\emph on
+NoOpAction
+\emph default
+, mai menzionata prima
+\end_layout
+
+\begin_layout Standard
+Analizziamo di seguito ognuna delle classi presentate e il loro ruolo così
+ da spiegare anche il motivo di queste differenze:
+\end_layout
+
+\begin_layout Description
+RelaxedGraphPlan è la classe che, presi in input tutti gli elementi necessari
+ a definire un problema di pianificazione, costruisce il grafo di pianificazione
+ corrispondente.
+ È quindi la classe che si occupa di stabilire la risolvibilità del problema
+ specificato e di espandere il grafo dallo stato iniziale allo stato finale.
+ 
+\end_layout
+
+\begin_layout Description
+LayeredPlan rappresenta il risultato dell'estrazione della soluzione a partire
+ dal grafo di pianificazione ottenuto dalla classe 
+\emph on
+RelaxedGraphPlan
+\emph default
+.
+ La soluzione generata è pronta per essere eseguita tramite il metodo apposito
+ esposto dalla classe.
+\begin_inset Newline newline
+\end_inset
+
+La separazione dell'esecuzione permette di accedere alla struttura dati
+ che rappresenta la soluzione ad esempio per mostrare all'utente il percorso
+ che l'algoritmo ha scelto di seguire per raggiungere lo stato finale.
+ Non è da escludere anche un intervento manuale che modifichi il grafo in
+ accordo con le specifiche, ma soddisfacendo particolari esigenze dell'utente
+ finale.
+\end_layout
+
+\begin_layout Description
+ActionLayer nonostante il nome indichi che stiamo trattando dello strato
+ delle azioni questa classe rappresenta accanto a quanto ci si aspetta anche
+ lo strato delle proprietà che ne deriva.
+ La scelta di unificare in una sola classe questi due concetti nasce come
+ conseguenza diretta della costruzione di un componente che ingloba in sé
+ le informazioni riguardo le proprietà coinvolte sia come precondizioni
+ che come postcondizioni.
+ Questo porta a poter ricavare lo strato delle proprietà come unione delle
+ informazioni fornite dai componenti nello strato delle azioni.
+ Quest'ultima considerazione è quella che permette di poter realizzare quanto
+ detto nel punto precedente circa l'intervento manuale dell'utente sulla
+ soluzione ottenuta che altrimenti sarebbe stato esageratamente complesso
+ e avrebbe richiesto una conoscenza dettagliata del framework e di tutte
+ le entità in gioco.
+\end_layout
+
+\begin_layout Description
+NoOpAction questa classe simula un componente che richiede come unica precondizi
+one la stessa proprietà che usa come postcondizione, cioè non fa nulla.
+\begin_inset Newline newline
+\end_inset
+
+Se inizialmente questo può far sorridere, a un esame più attento dell'architettu
+ra del framework vista finora in relazione con le specifiche dell'algoritmo
+ di automazione viste nel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:algoritmo-di-pianificazione"
+
+\end_inset
+
+ tutto assume un senso.
+ Essendo lo strato delle proprietà direttamente ricavato da quello delle
+ azioni, risulta impossibile eseguire l'espansione del grafo oltre il secondo
+ livello senza utilizzare delle azioni che permettano di rendere lo strato
+ delle proprietà monotonicamente crescente nel numero di proprietà che contiene.
+ Le 
+\emph on
+NoOpAction
+\emph default
+ sono dei componenti simulati con nessuna funzionalità proprio perché il
+ loro scopo è mantenere in ogni strato delle proprietà tutte le proprietà
+ degli strati precedenti oltre che quelle ottenute dalle azioni sullo stesso
+ livello.
+\end_layout
 wat.lib.models
 \begin_inset CommandInset label
 LatexCommand label
