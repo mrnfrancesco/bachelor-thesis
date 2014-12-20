@@ -3602,11 +3602,6 @@ name "sub:wat.lib.properties"
 
 \end_layout
 
-\begin_layout Subsection
-wat.lib.search
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:wat.lib.search"
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -3991,10 +3986,10 @@ reference "sec:proprietà-constraint"
 \end_layout
 
 \begin_layout Subsection
-wat.lib.shortcuts
+moduli di utilità
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:wat.lib.shortcuts"
+name "sub:moduli-di-utilità"
 
 \end_inset
 
@@ -4002,16 +3997,66 @@ name "sub:wat.lib.shortcuts"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Il framework fornisce altri due moduli di utilità nel package 
+\emph on
+wat.lib
+\emph default
+: 
+\emph on
+search
+\emph default
+ e 
+\emph on
+shortcut
+\emph default
+s.
+ Questi non essenziali al corretto funzionamento, ma permettono di assolvere
+ a compiti comuni che richiederebbero la scrittura di codice ripetitivo
+ e particolarmente incline a errori.
+\end_layout
+
+\begin_layout Standard
+I due moduli indicati raccolgono quindi delle procedure che tendono a semplifica
+re la scrittura di codice e aumentarne quindi la leggibilità.
+\end_layout
+
+\begin_layout Standard
+In particolare forniscono le seguenti funzionalità di base, con l'auspicio
+ di poterne inserire di nuove in rilasci successivi:
+\end_layout
+
+\begin_layout Description
+search fornisce le funzionalità di ricerca di proprietà e componenti con
+ la possibilità di specificare dei filtri con il quale escludere alcuni
+ risultati.
+ Nel caso dei componenti è possibile cercare per postcondizioni e/o precondizion
+i; nel caso delle proprietà si può cercare invece per nome.
+\end_layout
+
+\begin_layout Description
+shortcuts fornisce una procedura per ottenere un logger
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-TODO: Ci va anche la parte ui.cli?
+Oggetto in grado di fornire informazioni utili sul flusso di codice che
+ si sta eseguendo per l'utente e un modo veloce di individuare e tenere
+ traccia di eventuali errori per il programmatore.
 \end_layout
 
 \end_inset
 
+ che in modo automatico viene registrato utilizzando come nome quello del
+ modulo, della classe o del metodo a seconda del livello di profondità scelto.
+ 
+\begin_inset Newline newline
+\end_inset
 
+Fornisce inoltre una funzione che permette agli sviluppatori di componenti
+ di specificare in modo veloce un'insieme di proprietà con una gerarchia
+ uguale a meno del nome della foglia a cui ci si sta riferendo.
+ Questo permette di velocizzare il processo di specifica delle precondizioni
+ nel caso siano molte e tutte con una radice comune.
 \end_layout
 
 \begin_layout Section
