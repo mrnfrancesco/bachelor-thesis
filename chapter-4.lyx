@@ -3607,10 +3607,387 @@ wat.lib.search
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:wat.lib.search"
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[type=singleton]{Registry};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+wat.lib.properties.Registry
+\end_layout
+
+\end_inset
+
+Registry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+È una struttura dati dizionario (
+\emph on
+dict
+\emph default
+) che implementa il pattern 
+\emph on
+singleton
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Il singleton è un design pattern creazionale che ha lo scopo di garantire
+ che di una determinata classe venga creata una e una sola istanza, e di
+ fornire un punto di accesso globale a tale istanza.
+\end_layout
+
+\end_inset
+
+.
+ È utilizzata per raccogliere il valore delle proprietà ottenute dall'esecuzione
+ di tutti i componenti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=0,y=0]{Property}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(name : str)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ exists() : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_eq
+\backslash
+_(other : Property) : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_ne
+\backslash
+_(other : Property) : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_hash
+\backslash
+_() : str
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_str
+\backslash
+_() : str
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_repr
+\backslash
+_() : str
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass[x=0,y=-5]{Constraint}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(name : str, expected : object, compare
+\backslash
+_fn : str = 'eq')
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ compare() : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_eq
+\backslash
+_(other : Property) : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_ne
+\backslash
+_(other : Property) : bool
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_repr
+\backslash
+_() : str
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit{Constraint}{Property};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Property e Constraint
+\end_layout
+
+\end_inset
+
+Property e Constraint
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le classi 
+\emph on
+Property
+\emph default
+ e la sua specializzazione 
+\emph on
+Constraint
+\emph default
+ sono le classi che rappresentano i concetti rispettivamente di proprietà
+ e di vincolo.
+ Sono le classi più utilizzate dal framework.
+ Intervengono infatti nella definizione del problema di pianificazione,
+ nella definizione dei componenti per esplicitare quelle che sono le loro
+ precondizioni e postcondizioni, nella costruzione del grafo di pianificazione
+ (i PropertyLayer), ecc.
+\end_layout
+
+\begin_layout Standard
+Per le specifiche del loro utilizzo e funzionamento si rimanda alla descrizione
+ presente nel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:ontologia-framework"
+
+\end_inset
+
+ (in particolare 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:proprietà-constraint"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
