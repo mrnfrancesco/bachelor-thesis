@@ -1252,6 +1252,268 @@ name "sub:wat.lib.exceptions"
 
 \end_layout
 
+\begin_layout Standard
+La gestione delle eccezioni attraverso una gerarchia semplice, ma completa
+ come quella mostrata di seguito da un lato è rivolta a facilitare la gestione
+ di situazioni erronee o eccezionali che potrebbero sorgere durante l'esecuzione
+, dall'altro aiuta l'individuazione della sorgente d'errore attraverso una
+ nomenclatura atta a segnalare sia il modulo interessato, sia lo specifico
+ errore verificatosi.
+\end_layout
+
+\begin_layout Standard
+Gli errori generati che non possono essere gestiti in modo trasparente vengono
+ propagati fino all'interfaccia utente che provvede a darne avviso all'utente
+ finale nel modo più appropriato.
+\end_layout
+
+\begin_layout Standard
+A seguire è fornita una breve descrizione di tutte le eccezioni e del loro
+ significato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=-5,y=2.5]{InvalidTypeError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=0,y=2.5]{ClientError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=5,y=2.5]{ImproperlyConfigured};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=0,y=0]{WatError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=-2.5,y=-2.5]{ComponentError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=5,y=-2.5]{PropertyError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=-5,y=-5]{ComponentFailure};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=0,y=-5]{InvalidComponentError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=1,y=-7.5]{PropertyNotAchievedError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=-5,y=-9]{PropertyDoesNotExist};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlemptyclass[x=1,y=-10.5]{ConstraintViolationError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-]{InvalidTypeError}{WatError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit{ClientError}{WatError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-]{ImproperlyConfigured}{WatError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-|]{ComponentError}{WatError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-|]{PropertyError}{WatError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-|]{ComponentFailure}{ComponentError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=|-|]{InvalidComponentError}{ComponentError};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=-|]{ConstraintViolationError}{PropertyError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=-|]{PropertyDoesNotExist}{PropertyError};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlinherit[geometry=-|]{PropertyNotAchievedError}{PropertyError};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+wat.lib.exceptions
+\end_layout
+
+\end_inset
+
+Le classi nel modulo wat.lib.exceptions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection*
 Eccezioni generiche
 \begin_inset CommandInset label
@@ -2369,19 +2631,216 @@ Indica che il parametro specificato non è di nessuno dei tipi attesi.
 
 \end_layout
 
-\begin_layout Subsubsection*
-Eccezioni indicanti violazioni di vincoli
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "height"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "55col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
 \end_layout
 
-\begin_layout Subsection
-wat.lib.graph
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:wat.lib.graph"
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{InvalidComponentError}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(message : object, params : dict)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+InvalidComponentError
+\end_layout
+
+\end_inset
+
+InvalidComponentError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Indica che il componente non rispetta gli standard imposti dal framework.
+ Questo errore può verificarsi ad esempio quando il componente non fornisce
+ una descrizione, almeno un autore, ecc.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Eccezioni indicanti violazioni di vincoli
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+umlclass{ConstraintViolationError}{}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		+ 
+\backslash
+_init
+\backslash
+_(constraint : wat.lib.properties.Constraint)
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ConstraintViolationError
+\end_layout
+
+\end_inset
+
+ConstraintViolationError
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Indica che è stato violato un vincolo; in particolare si verifica quando
+ un componente richiede, per il corretto funzionamento, che il valore di
+ una proprietà rispetti un vincolo più o meno stringente (vedi sez.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:proprietà-constraint"
+
+\end_inset
+
+) che non viene rispettato.
 \end_layout
 
 \begin_layout Subsection
