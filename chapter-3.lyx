@@ -2130,11 +2130,39 @@ Ogni grafo di pianificazione
 \end_layout
 
 \begin_layout Proof
+Se una proprietà appare in un qualche livello delle proprietà 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+, allora apparirà anche in tutti i livelli successivi (vedi Sottosezione
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:espansione-del-grafo"
+
+\end_inset
+
+).
+ Dato che:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+l'insieme delle azioni 
+\begin_inset Formula $A$
+\end_inset
+
+ è un insieme finito
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $P_{j}$
 \end_inset
 
- cresce monotonicamente.
- 
+ cresce monotonicamente
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $A_{j}$
 \end_inset
 
@@ -2146,9 +2174,17 @@ Ogni grafo di pianificazione
 \begin_inset Formula $P_{j-1}$
 \end_inset
 
-.
+
 \end_layout
 
+\begin_layout Standard
+allora deve necessariamente esistere un livello delle azioni vuoto per cui
+ il corrispondente livello delle proprietà non aggiungerà nuovi elementi
+ e quindi tutti i livelli successivi avranno esattamente lo stesso insieme
+ di proprietà.
+\end_layout
+
+\end_deeper
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -2230,14 +2266,14 @@ RGP termina sempre.
 \end_layout
 
 \begin_layout Proof
-Dalla proposizione 
+Dalla Proposizione 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "proposition:esistenza-fixed-point-level"
 
 \end_inset
 
- e dal lemma 
+ e dal Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lemma:fixed-point-level-upperbound"
@@ -2255,14 +2291,63 @@ reference "lemma:fixed-point-level-upperbound"
 Completezza
 \end_layout
 
-\begin_layout Standard
+\begin_layout Theorem
 RGP termina in uno stato di fallimento se e solo se il problema di pianificazion
-e dato non ha soluzione; altrimenti restituisce un LayeredPlan che contiene
- tutte le possibili soluzioni del dato problema.
- Questa affermazione è confermata dalla proposizione seguente.
+e dato non ha soluzione.
 \end_layout
 
-\begin_layout Proposition
+\begin_layout Proof
+La direzione più semplice della dimostrazione è che se il problema non ha
+ soluzione, allora RGP terminerà in uno stato di fallimento.
+ Questa affermazione è diretta conseguenza del fatto che se non esiste soluzione
+ RGP continuerà l'espansione del grafo fino al raggiugimento del 
+\emph on
+fixed-point level
+\emph default
+, dopodiché terminerà (vedi Proposizione 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "proposition:esistenza-fixed-point-level"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Proof
+Per dimostrare la direzione opposta supponiamo per assurdo che il problema
+ abbia soluzione, ma che RGP sia terminato in uno stato di fallimento.
+\begin_inset Newline newline
+\end_inset
+
+Sappiamo per costruzione che RGP termina dopo l'espansione del grafo di
+ pianificazione se trova la soluzione del problema, cioè lo stato finale
+ è interamente contenuto nell'ultimo livello delle proprietà, oppure se
+ ha raggiunto un 
+\emph on
+fixed-point level
+\emph default
+.
+ Sappiamo RGP essere terminato in uno stato di fallimento, cioè ha raggiunto
+ il 
+\emph on
+fixed-point level
+\emph default
+.
+ Per definizione l'ultimo livello delle proprietà conterrà l'insieme 
+\begin_inset Formula $S$
+\end_inset
+
+ di tutte le proprietà ottenibili a partire dallo stato iniziale specificato.
+ Questo significa che 
+\begin_inset Formula $S$
+\end_inset
+
+ contiene anche lo stato finale perché abbiamo supposto il problema risolvibile,
+ ma questo è un assurdo.
+\end_layout
+
+\begin_layout Corollary
 Se 
 \begin_inset Formula $g$
 \end_inset
@@ -2276,10 +2361,6 @@ Se
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
-Vero per costruzione
 \end_layout
 
 \begin_layout Subsection*
@@ -2321,16 +2402,10 @@ la dimensione del problema è
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\left|A_{j}\right|\leq m+n,\,\forall j\in\left\{ 1,\ldots,k\right\} $
+\begin_inset Formula $\left|A_{j}\right|\leq n,\,\forall j\in\left\{ 1,\ldots,k\right\} $
 \end_inset
 
- dove 
-\begin_inset Formula $m+n$
-\end_inset
 
- deriva dall'uso di azioni 
-\shape italic
-no-op
 \end_layout
 
 \begin_layout Itemize
