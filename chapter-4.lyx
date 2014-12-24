@@ -331,19 +331,6 @@ reference "sec:diagramma-delle-classi"
 \end_layout
 
 \begin_layout Standard
-Nella sezione
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:diagramma-di-sequenza"
-
-\end_inset
-
- verrà mostrato un diagramma di sequenza che mostra schematicamente il funzionam
-ento del framework dalla definizione del problema fino all'estrazione della
- soluzione.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage clearpage
 \end_inset
 
@@ -896,14 +883,7 @@ modulo che fornisce un binding tra il linguaggio Python e la libreria libcurl
 .
  Queste classi aggiungono alle normali funzionalità offerte l'inizializzazione
  sulla base dei valori di default forniti dalla configurazione del framework
- (vedi 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:wat.lib.conf"
-
-\end_inset
-
-) e quelli forniti dall'utente attraverso l'interfaccia preferita, tra quelle
+ e quelli forniti dall'utente attraverso l'interfaccia preferita, tra quelle
  fornite.
 \end_layout
 
@@ -4057,31 +4037,6 @@ Fornisce inoltre una funzione che permette agli sviluppatori di componenti
  uguale a meno del nome della foglia a cui ci si sta riferendo.
  Questo permette di velocizzare il processo di specifica delle precondizioni
  nel caso siano molte e tutte con una radice comune.
-\end_layout
-
-\begin_layout Section
-Diagramma di sequenza
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:diagramma-di-sequenza"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: solo un esempio, ma completo, di tutta la sequenza dall'inizio alla
- fine
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
