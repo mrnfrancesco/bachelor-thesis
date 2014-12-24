@@ -103,17 +103,7 @@ status open
 
 
 \backslash
-addcontentsline{toc}{chapter}{Abstract} 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-adds table of contents entry
+addcontentsline{toc}{chapter}{Sommario} 
 \end_layout
 
 \end_inset
