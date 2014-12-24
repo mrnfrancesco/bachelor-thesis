@@ -339,7 +339,7 @@ Relaxed GraphPlan
 \end_layout
 
 \begin_layout Standard
-Nel paragrafo 
+Nella sezione 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:relaxed-graphplan"
@@ -372,7 +372,7 @@ reference "sec:soluzione"
 \end_layout
 
 \begin_layout Standard
-Nel paragrafo 
+Nella sezione 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:descrizione-implementativa"
@@ -407,7 +407,7 @@ reference "sub:estrazione-della-soluzione"
 \end_layout
 
 \begin_layout Standard
-Nel paragrafo 
+Nella sezione 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:proprietà"

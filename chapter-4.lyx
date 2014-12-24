@@ -305,7 +305,7 @@ In questo capitolo verrà data una panoramica dell'architettura del framework
 \end_layout
 
 \begin_layout Standard
-Nel paragrafo 
+Nella sezione
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:diagramma-dei-package"
@@ -317,7 +317,7 @@ reference "sec:diagramma-dei-package"
 \end_layout
 
 \begin_layout Standard
-Nel paragrafo 
+Nella sezione
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:diagramma-delle-classi"
@@ -331,7 +331,7 @@ reference "sec:diagramma-delle-classi"
 \end_layout
 
 \begin_layout Standard
-Nel paragrafo 
+Nella sezione
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:diagramma-di-sequenza"
