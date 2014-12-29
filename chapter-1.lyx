@@ -12,13 +12,13 @@
 }
 \def\refnamechanges{%
  \renewcommand*{\equationautorefname}[1]{}%
- \renewcommand{\sectionautorefname}{sec.\negthinspace}%
- \renewcommand{\subsectionautorefname}{sec.\negthinspace}%
- \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}%
+ \renewcommand{\sectionautorefname}{\negthinspace}%
+ \renewcommand{\subsectionautorefname}{\negthinspace}%
+ \renewcommand{\subsubsectionautorefname}{\negthinspace}%
  \renewcommand{\figureautorefname}{Fig.\negthinspace}%
  \renewcommand{\tableautorefname}{Tab.\negthinspace}%
 }
-\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\@ifpackageloaded{babel}{\addto\extrasitalian{\refnamechanges}}{\refnamechanges}
 
 % in case somebody want to have the label "Equation"
 %\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
@@ -64,7 +64,7 @@
 customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language italian
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -133,7 +133,7 @@ customHeadersFooters
 \tocdepth 2
 \paragraph_separation skip
 \defskip medskip
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 2
 \paperpagestyle fancy
@@ -285,16 +285,674 @@ thepage
 Introduzione
 \end_layout
 
+\begin_layout Standard
+In questo capitolo verrà fornita una breve introduzione a quello che è l'ambito
+ di interesse (sez.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:caso-di-studio"
+
+\end_inset
+
+), le problematiche (sez.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sicurezza-open-source"
+
+\end_inset
+
+) e le attuali contromisure (sez.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:attuali-contromisure"
+
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+La sezione
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:alternativa-proposta"
+
+\end_inset
+
+, invece, spiega brevemente l'approccio che si intende proporre come alternativa
+ alle attuali strategie e che verrà poi spiegato in dettaglio nei capitoli
+ successivi.
+\end_layout
+
 \begin_layout Section
-Caso di studio: la sicurezza informatica
+Caso di studio: la sicurezza informatica e il penetration testing
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:caso-di-studio"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con il termine 
+\begin_inset Quotes fld
+\end_inset
+
+sicurezza informatica
+\begin_inset Quotes frd
+\end_inset
+
+ si intende quel ramo dell'informatica che si occupa dell'analisi delle
+ vulnerabilità, del rischio, delle minacce o attacchi e quindi della protezione
+ dell'integrità fisica (hardware) e logico-funzionale (software) di un sistema
+ informatico e dei dati in esso contenuti o scambiati in una comunicazione
+ con un utente.
+\end_layout
+
+\begin_layout Standard
+La sicurezza informatica è un problema molto sentito in ambito tecnico-informati
+co per via della crescente informatizzazione della società e dei servizi
+ (pubblici e privati) in termini di apparati e sistemi informatici e della
+ parallela diffusione e specializzazione degli attaccanti.
+ Da questa necessità nasce la figura del 
+\emph on
+penetration tester
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Il 
+\emph on
+penetration testing
+\emph default
+ è il processo operativo di valutazione della sicurezza di un sistema o
+ di una rete che simula l'attacco di un utente malintenzionato.
+ L'analisi comprende più fasi ed ha come obiettivo evidenziare le debolezze
+ della piattaforma fornendo il maggior numero di informazioni sulle vulnerabilit
+à che ne hanno permesso l'accesso non autorizzato.
+ Questo processo diventa particolarmente importante con l'ingresso dell'
+\emph on
+open source
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Open source
+\emph default
+, dall'inglese 
+\begin_inset Quotes fld
+\end_inset
+
+sorgente aperto
+\begin_inset Quotes frd
+\end_inset
+
+, indica un software di cui gli autori (più precisamente i detentori dei
+ diritti) rendono pubblico il codice sorgente, favorendone il libero studio
+ e permettendo a programmatori indipendenti di apportarvi modifiche.
+ 
+\end_layout
+
+\end_inset
+
+ nel contesto aziendale.
 \end_layout
 
 \begin_layout Section
 La sicurezza nell'Open Source
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:sicurezza-open-source"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ci sono stati molti dibattiti riguardo l'impatto dell'approccio 
+\emph on
+open source
+\emph default
+ sulla sicurezza informatica.
+ Una delle obiezioni principali è che l'open source espone il codice sorgente
+ a chiunque, sia agli attaccanti che ai difensori; ma è veramente questo
+ il problema? Vediamo di seguito perché la sicurezza è un rischio sia per
+ sistemi 
+\emph on
+open source
+\emph default
+ che per quelli con codice proprietario.
+\end_layout
+
+\begin_layout Subsection
+Il punto di vista degli esperti
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:punto-di-vista-esperti"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Bruce
+\begin_inset space ~
+\end_inset
+
+Schneier famoso esperto in sicurezza informatica e crittografia, sostiene
+ sia la pubblicazione del codice sorgente, sia dei bug trovati perché 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+se i ricercatori non si rivolgessero al pubblico, i bug non verrebbero risolti.
+ Le aziende non li vedono come rischi per la sicurezza finché solo loro
+ ne sono a conoscenza
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "schneier_on_full_disclosure"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Vincent
+\begin_inset space ~
+\end_inset
+
+Rijmen uno dei progettisti di AES
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "AES"
+description "Advanced Encryption Standard"
+
+\end_inset
+
+, crede che l'open source sia un importante mezzo per rendere più facile
+ l'individuazione e correzione di vulnerabilità, 
+\begin_inset Quotes fld
+\end_inset
+
+Non solo perché più persone possono leggerlo, ma, più importante, perché
+ questo forza le persone a scrivere un codice più pulito, e ad aderire agli
+ standard.
+ Questo a sua volta facilita l'analisi della sicurezza
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rijmen_on_open_source_and_security"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Elias
+\begin_inset space ~
+\end_inset
+
+Levy primo moderatore di bugtraq
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Uno dei più popolari gruppi di discussione dedicato alla sicurezza informatica\SpecialChar \@.
+
+\end_layout
+
+\end_inset
+
+, parla dei problemi di rendere il software open source sicuro in questo
+ modo: 
+\begin_inset Quotes fld
+\end_inset
+
+[...] il software open source è peggiore del software proprietario quando si
+ tratta di vulnerabilità di sicurezza? No.
+ Il software open source ha sicuramente la potenzialità di essere più sicuro
+ della controparte proprietaria.
+ [...] essere open source non è però una garanzia di sicurezza
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "levy_on_open_source_and_security"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Whitfield
+\begin_inset space ~
+\end_inset
+
+Diffie co-inventore della crittografia a chiave pubblica, afferma che 
+\begin_inset Quotes fld
+\end_inset
+
+È semplicemente irrealistico basare la sicurezza di un software sulla segretezza.
+ Si potrebbe essere in grado di mantenere non noto l'esatto funzionamento
+ del programma, ma si può prevenire che qualcuno faccia 
+\emph on
+reverse engineering
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+È il processo di estrazione della conoscenza o di informazioni progettuali
+ da qualcosa al fine di riprodurlo o produrre qualcosa basato sulle informazioni
+ estratte.
+\end_layout
+
+\end_inset
+
+
+\emph default
+ del codice? Probabilmente no
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+John
+\begin_inset space ~
+\end_inset
+
+Viegas autore dell'articolo 
+\begin_inset Quotes fld
+\end_inset
+
+Il mito della sicurezza nell'open source
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "viega_on_open_source_and_security"
+
+\end_inset
+
+, esprime così il suo pensiero: 
+\begin_inset Quotes fld
+\end_inset
+
+Progetti software open source possono essere più sicuri di progetti con
+ codice proprietario.
+ Tuttavia, le cose che possono realmente rendere programmi open source sicuri
+ -- la disponibilità del codice sorgente, il fatto che un gran numero di
+ utenti sono disponibili nel trovare e correggere vulnerabilità di sicurezza
+ -- può portare le persone in un falso senso di sicurezza
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Brian
+\begin_inset space ~
+\end_inset
+
+Witten,
+\begin_inset space ~
+\end_inset
+
+Carl
+\begin_inset space ~
+\end_inset
+
+Landwehr
+\begin_inset space ~
+\end_inset
+
+e
+\begin_inset space ~
+\end_inset
+
+Micahel
+\begin_inset space ~
+\end_inset
+
+Caloyannides in un articolo nella rivista IEEE Software
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ieee_software_open_source_and_security"
+
+\end_inset
+
+, concludono che avere a disposizione il codice sorgente di un software
+ aumenta la sicurezza del sistema.
+ In particolare notano che: 
+\begin_inset Quotes fld
+\end_inset
+
+[...] accedere al codice sorgente permette agli utenti di migliorare il sistema
+ -- se hanno capacità e risorse per farlo.
+ [...] test indicano che in alcuni casi il ciclo di vita di software open source
+ produce sistemi che sono meno vulnerabili ad attacchi involontari.
+ [...] sondaggi su tre sistemi operativi indicano che quello open source ha
+ incontrato una minor esposizione a vulnerabilità di sicurezza, nella forma
+ di bug noti, ma senza 
+\emph on
+patch
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Indica un frammento di codice creato per risolvere uno specifico errore
+ di programmazione, che impedisce il corretto funzionamento di un software.
+\end_layout
+
+\end_inset
+
+ disponibili, in un periodo di 12 mesi rispetto le controparti con codice
+ proprietario
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Perché rendere i sorgenti proprietari non ferma gli attacchi
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:sorgenti-proprietari"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si sosteneva che un sistema senza codice sorgente fosse più sicuro perché,
+ dato che c'erano meno informazioni disponibili per un attaccante, doveva
+ essere più difficile trovare delle vulnerabilità.
+ Ora si pensa che quest'argomentazione abbia diversi punti deboli prima
+ di tutto perché parte dall'assunzione (errata) di poter sempre mantenere
+ segreti i sorgenti, secondo poi perché generalmente un attaccante non necessita
+ del codice sorgente per trovare vulnerabilità di sicurezza.
+\end_layout
+
+\begin_layout Standard
+Prima di proseguire è importante distinguere tra atti 
+\begin_inset Quotes fld
+\end_inset
+
+distruttivi
+\begin_inset Quotes frd
+\end_inset
+
+ e atti 
+\begin_inset Quotes fld
+\end_inset
+
+costruttivi
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Nel mondo reale è più facile distruggere un'automobile che costruirne una.
+ Allo stesso modo nel mondo del software è più facile trovare e sfruttare
+ una vulnerabilità che aggiungere nuove funzionalità.
+ Gli attaccanti hanno molti vantaggi rispetto ai difensori proprio per questa
+ differenza.
+ Gli sviluppatori software devono cercare di non fare errori che aprano
+ falle di sicurezza, ma prima di tutto devono scrivere un programma che
+ funzioni.
+ Agli attaccanti, invece, basta trovare una sola vulnerabilità e non devono
+ preoccuparsi che lo sfruttarla garantisca ancora il corretto funzionamento
+ del programma.
+ Risulta quindi evidente che attaccare un sistema richiede meno informazioni
+ rispetto al modificarlo.
+\end_layout
+
+\begin_layout Standard
+Generalmente gli attaccanti, contro sistemi sia open source che proprietari,
+ iniziano cercando sulla rete quelle che sono le vulnerabilità note che
+ il sistema ha.
+ In questa fase non importa quanto e cosa si nasconde del sistema, le informazio
+ni sono altrove, e in ogni caso sono informazioni che servono anche alla
+ parte che difende.
+ Una volta ottenute queste informazioni un attaccante usa delle tecniche
+ per verificare la presenza dei problemi segnalati.
+ Queste tecniche possono essere suddivise principalmente in due categorie:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+dinamiche quando si eseguono dei programmi
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+statiche quando si esamina il codice sorgente del programma, sia che sia
+ codice sorgente o codice macchina
+\end_layout
+
+\begin_layout Standard
+Negli approcci dinamici un attaccante esegue un programma che invia dati
+ e analizza la risposta del sistema in esame per verificare la presenza
+ di vulnerabilità comuni o note.
+ Open source e codice proprietario non presentano differenze in questo caso.
+\end_layout
+
+\begin_layout Standard
+Gli attaccanti potrebbero anche guardare il codice sorgente, quindi con
+ approccio statico.
+ Se il sistema in esame espone il codice sorgente, allora questo verrà utilizzat
+o per cercare dei 
+\emph on
+pattern
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+È una soluzione generale a un problema di programmazione.
+ Un pattern fornisce uno schema architetturale riutilizzabile che può accelerare
+ lo sviluppo del codice.
+\end_layout
+
+\end_inset
+
+.
+ Se a prima vista questo sembrerebbe impossibile nel caso di sistemi con
+ codice proprietario, in realtà gli attaccanti analizzano il codice macchina
+ alla ricerca di pattern che suggeriscano la presenza di problemi di sicurezza.
+ Per svolgere questo compito gli attaccanti possono avvalersi di programmi
+ chiamati 
+\begin_inset Quotes fld
+\end_inset
+
+decompilatori
+\begin_inset Quotes frd
+\end_inset
+
+ che trasformano il codice macchina in codice sorgente.
+\end_layout
+
+\begin_layout Standard
+I non tecnici potrebbero chiedersi a cosa serve fornire il codice sorgente
+ se è comunque ricavabile a partire dal codice macchina.
+ Il problema è che gli sviluppatori non necessitano del codice sorgente
+ per trovare falle di sicurezza, necessitano del codice per implementare
+ delle modifiche al software.
+ I decompilatori, però, generano un codice sorgente estremamente difficile
+ da modificare.
+ Tipicamente i nomi significativi di variabili e funzioni vengono sostituiti
+ con stringhe di caratteri alfanumerici apparentemente casuali.
+ Non è da escludere inoltre che il decompilatore fallisca il suo compito
+ in alcune porzioni di codice che vengono quindi riportate in codice 
+\emph on
+assembly
+\emph default
+.
+ È inoltre certa la perdita di commenti e informazioni progettuali.
+ Nonostante questo non sia affatto un problema nella ricerca di vulnerabilità,
+ risulta bloccante quando si cerca di correggere il codice che le genera.
+\begin_inset Newline newline
+\end_inset
+
+In questo scenario è semplice trovare delle vulnerabilità, ma non sempre
+ lo è fornire delle patch, in particolare nel caso di sorgenti proprietari.
+\end_layout
+
+\begin_layout Subsection
+Perché mantenere segrete le vulnerabilità non è una soluzione
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:sicurezza-tramite-segretezza"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Capita a volte che sia nota una vulnerabilità, ma non lo sia il modo di
+ sfruttarla, quindi si dice che il sistema sia 
+\begin_inset Quotes fld
+\end_inset
+
+praticamente sicuro
+\begin_inset Quotes frd
+\end_inset
+
+.
+ In teoria questo è corretto, ma il problema è che chi trova la falla di
+ sicurezza potrebbe sfruttarla invece che aiutare a correggerla.
+ Allo stesso modo avere vulnerabilità che non sono pubbliche non significa
+ essere al sicuro; significa piuttosto convivere con una bomba che non si
+ può sapere quando verrà fatta esplodere.
+ Fondamentalmente il fatto che chi scopre la vulnerabilità la sfrutti anche
+ è un problema per entrambi i sistemi sia open source che non.
+\end_layout
+
+\begin_layout Standard
+Un'affermazione correlata a questo che a volte viene fatta è che non dovrebbero
+ venire pubblicate discussioni in cui si parla di vulnerabilità trovate.
+ Di nuovo, questo in teoria è un approccio corretto, ma il problema è che
+ un attaccante difficilmente tiene per se un'informazione simile, e i canali
+ attraverso cui potrebbe diffonderla sono troppi per contenere la diffusione
+ massiva.
+ In passato le aziende erano molto attive nel prevenire la diffusione della
+ conoscenza della presenza di vulnerabilità nei loro sistemi.
+ Queste infatti non venivano risolte finché la loro conoscenza non era ampiament
+e diffusa sulla rete e ancor di più agli utenti del sistema.
 \end_layout
 
 \begin_layout Section
 Attuali contromisure
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:attuali-contromisure"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per ovviare al problema della sicurezza sempre più spesso le aziende si
+ appoggiano a terze parti che offrono l'esperienza di esperti nel settore
+ per analizzare e testare i sistemi a partire dalle stesse informazioni
+ e con le stesse modalità di un attaccante esterno.
+\end_layout
+
+\begin_layout Standard
+In uno scenario simile l'interesse si sposta quindi sugli strumenti che
+ sono a disposizione degli attaccanti.
+ Spesso si tratta di programmi 
+\emph on
+open source
+\emph default
+ che permettono un certo grado di automazione del processo.
+ Tra questi ricordiamo prodotti software come:
+\end_layout
+
+\begin_layout Description
+OpenVAS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "OpenVAS"
+description "Open Vulnerability Assessment System, sistema open source per la valutazione di vulnerabilità di sicurezza"
+
+\end_inset
+
+ framework che mette a disposizione un avanzato sistema di scansione e gestione
+ delle vulnerabilità
+\end_layout
+
+\begin_layout Description
+Metasploit framework con infrastruttura a componenti per sfruttare la presenza
+ di vulnerabilità di sicurezza
+\end_layout
+
+\begin_layout Description
+w3af
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "w3af"
+description "Web Application Attack and Audit Framework"
+
+\end_inset
+
+ framework per la scansione e per lo sfruttamento di vulnerabilità delle
+ applicazioni web
+\end_layout
+
+\begin_layout Standard
+Tutti quanti questi software offrono un grande aiuto al potenziale attaccante
+ in quanto danno modo di verificare l'esistenza di vulnerabilità, e in alcuni
+ casi come abbiamo visto permettono di sfruttarle, in modo semi-automatico.
+\end_layout
+
+\begin_layout Standard
+Quello che però li mette in comune è che, anche nei casi in cui l'infrastruttura
+ è a componenti, questi framework hanno un ottimo comportamento nel momento
+ in cui si hanno già molte informazioni sul sistema che si sta attaccando
+ e si conosce la specifica vulnerabilità da sfruttare.
+ La fase di raccolta delle informazioni (o 
+\emph on
+information gathering
+\emph default
+), però, è un'attività che ha una forte dipendenza dalla creatività umana
+ che di fronte a un sistema cerca informazioni che potrebbero essere utili
+ e mettendo poi insieme ciò che è stato trovato genera una strategia di
+ attacco più o meno specifica per il sistema in esame.
 \end_layout
 
 \begin_layout Section
