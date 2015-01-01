@@ -650,10 +650,10 @@ I componenti rappresentano il cuore del framework.
  Sono dei piccoli software che, eventualmente sulla base dei valori di alcune
  proprietà, eseguono una porzione più o meno piccola di codice in grado
  di fornire il valore di una nuova proprietà.
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-Ogni componente, quindi, espone le seguenti informazioni:
+\begin_layout Standard
+Ogni componente espone le seguenti informazioni:
 \end_layout
 
 \begin_layout Description
@@ -1021,9 +1021,9 @@ username
 \shape italic
 password
 \shape default
-, nessuna informazione in più e nessuna in meno; inoltre ci aspettiamo anche
- che questi dati siano riconoscibili, cioè che una volta ottenuti si possa
- distinguerli tra loro.
+, nessuna informazione in più e nessuna in meno; inoltre ci aspettiamo che
+ questi dati siano riconoscibili, cioè che una volta ottenuti si possa distingue
+rli tra loro.
  È quindi chiaro che in questo caso l'unica struttura dati che fornisce
  questo meccanismo è il dizionario.
  Quindi quello che il framework garantisce è che se definiamo che il tipo
@@ -1039,7 +1039,7 @@ username
 \shape italic
 password
 \shape default
-, allora tutti i componenti che fonriscono tale proprietà sono conformi
+, allora tutti i componenti che forniscono tale proprietà saranno conformi
  a tale scelta.
 \end_layout
 
