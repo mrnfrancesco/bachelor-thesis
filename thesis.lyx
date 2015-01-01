@@ -160,6 +160,11 @@ theorems-chap-bytype
 \filename_suffix 0
 \color #55007f
 \end_branch
+\branch chapter-5
+\selected 1
+\filename_suffix 0
+\color #aa0000
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -607,6 +612,26 @@ filename "chapter-4.lyx"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Branch chapter-5
+status open
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter-5.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage cleardoublepage
 \end_inset
 
