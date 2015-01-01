@@ -936,15 +936,14 @@ description "Web Application Attack and Audit Framework"
 
 \begin_layout Standard
 Tutti quanti questi software offrono un grande aiuto al potenziale attaccante
- in quanto danno modo di verificare l'esistenza di vulnerabilità, e in alcuni
- casi come abbiamo visto permettono di sfruttarle, in modo semi-automatico.
+ in quanto danno modo di verificare l'esistenza di vulnerabilità e in alcuni
+ casi come quelli abbiamo visto permettono di sfruttarle in modo semi-automatico.
 \end_layout
 
 \begin_layout Standard
-Quello che però li mette in comune è che, anche nei casi in cui l'infrastruttura
- è a componenti, questi framework hanno un ottimo comportamento nel momento
- in cui si hanno già molte informazioni sul sistema che si sta attaccando
- e si conosce la specifica vulnerabilità da sfruttare.
+Quello che però li accomuna è che questi framework hanno un ottimo comportamento
+ nel momento in cui si hanno già molte informazioni sul sistema che si sta
+ attaccando e si conosce la specifica vulnerabilità da sfruttare.
  La fase di raccolta delle informazioni (o 
 \emph on
 information gathering
@@ -952,13 +951,462 @@ information gathering
 ), però, è un'attività che ha una forte dipendenza dalla creatività umana
  che di fronte a un sistema cerca informazioni che potrebbero essere utili
  e mettendo poi insieme ciò che è stato trovato genera una strategia di
- attacco più o meno specifica per il sistema in esame.
+ attacco più o meno specifica ed efficace per il sistema in esame.
 \end_layout
 
 \begin_layout Section
 Alternativa proposta
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:alternativa-proposta"
+
+\end_inset
+
+
 \end_layout
 
+\begin_layout Standard
+Quello che vorrei porre all'attenzione del lettore è la proposta di un nuovo
+ framework con un'infrastruttura a componenti come le soluzioni attualmente
+ disponibili, ma che offra un grado di automatismo maggiore.
+\end_layout
+
+\begin_layout Standard
+Chiameremo questo software 
+\emph on
+WAT Framework
+\emph default
+ (o 
+\emph on
+WATf
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "WATf"
+description "WAT Framework"
+
+\end_inset
+
+
+\emph default
+ per brevità).
+\end_layout
+
+\begin_layout Subsection
+La scelta del nome
+\end_layout
+
+\begin_layout Standard
+La prima 
+\begin_inset Quotes fld
+\end_inset
+
+innovazione
+\begin_inset Quotes frd
+\end_inset
+
+ introdotta da 
+\emph on
+WATf
+\emph default
+ è l'assenza di significato del nome; la sigla 
+\emph on
+WAT
+\emph default
+, infatti, diversamente da quanto ci si aspetterebbe, non è un acronimo.
+ La scelta delle lettere 
+\emph on
+W
+\emph default
+, 
+\emph on
+A
+\emph default
+ e 
+\emph on
+T
+\emph default
+ non è però totalmente casuale, ma è il risultato della scelta:
+\end_layout
+
+\begin_layout Itemize
+delle tre lettere che più si prestano, statisticamente parlando, a comporre
+ acronimi brevi.
+ Si pensi ad esempio a:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\emph on
+W
+\series default
+eb 
+\series bold
+A
+\series default
+pplication 
+\series bold
+\shape italic
+\emph default
+T
+\series default
+\shape default
+\emph on
+esting 
+\series bold
+\shape italic
+\emph default
+F
+\series default
+\shape default
+\emph on
+ramework
+\emph default
+ (
+\begin_inset Quotes fld
+\end_inset
+
+framework per il test di applicazioni web
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\shape italic
+W
+\series default
+\shape default
+\emph on
+hat 
+\series bold
+\shape italic
+\emph default
+A
+\series default
+\shape default
+\emph on
+ 
+\series bold
+\shape italic
+\emph default
+T
+\series default
+\shape default
+\emph on
+errible 
+\series bold
+\shape italic
+\emph default
+F
+\series default
+\shape default
+\emph on
+ramework
+\emph default
+ (
+\begin_inset Quotes fld
+\end_inset
+
+che framework terribile
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\shape italic
+W
+\series default
+\shape default
+\emph on
+eakness 
+\series bold
+\shape italic
+\emph default
+A
+\series default
+\shape default
+\emph on
+nd 
+\series bold
+\shape italic
+\emph default
+T
+\series default
+\shape default
+\emph on
+hreat 
+\series bold
+\shape italic
+\emph default
+F
+\series default
+\shape default
+\emph on
+ramework
+\emph default
+ (
+\begin_inset Quotes fld
+\end_inset
+
+framework per debolezze e minacce
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\shape italic
+W
+\series default
+\shape default
+\emph on
+hatever 
+\series bold
+\shape italic
+\emph default
+A
+\series default
+\shape default
+\emph on
+nyone 
+\series bold
+\shape italic
+\emph default
+T
+\series default
+\shape default
+\emph on
+hinks 
+\series bold
+\shape italic
+\emph default
+F
+\series default
+\shape default
+\emph on
+ramework
+\emph default
+ (
+\begin_inset Quotes fld
+\end_inset
+
+framework per qualunque cosa qualcuno pensi
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+della traduzione della parola più pronunciata quando si cerca di spiegare
+ qualcosa di nuovo: 
+\begin_inset Quotes fld
+\end_inset
+
+cosa?
+\begin_inset Quotes frd
+\end_inset
+
+, in inglese 
+\begin_inset Quotes fld
+\end_inset
+
+what?
+\begin_inset Quotes frd
+\end_inset
+
+, in americano 
+\begin_inset Quotes fld
+\end_inset
+
+wat?
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+L'idea di base
+\end_layout
+
+\begin_layout Standard
+L'idea che sta alla base di 
+\emph on
+WATf 
+\emph default
+è quella di creare un meccanismo che permetta all'utente finale di specificare
+ l'obiettivo che vuole raggiungere senza dover specificare i singoli passi
+ che sono necessari per raggiungerlo.
+\end_layout
+
+\begin_layout Standard
+Per raggiungere questo scopo si è pensato di scrivere ogni componente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Si pensi per il momento a un componente con la stessa accezione di 
+\emph on
+plugin
+\emph default
+ o 
+\emph on
+add-on
+\emph default
+.
+\end_layout
+
+\end_inset
+
+ in modo tale da esprimere programmaticamente quando e con quali vincoli
+ è eseguibile e come cambia lo stato del sistema dopo la sua esecuzione.
+\begin_inset Newline newline
+\end_inset
+
+Questo modo di strutturare i componenti permette allo stesso tempo sia di
+ mostrare all'utente le stesse informazioni a cui è abituato con le soluzioni
+ attuali, sia di sfruttare quelle stesse informazioni per trovare automaticament
+e il momento opportuno di utilizzare il componente per raggiugere l'obiettivo
+ specificato.
+\end_layout
+
+\begin_layout Standard
+È chiaro quindi che avendo a disposizione questa base di conoscenza e le
+ due sole informazioni di stato iniziale e obiettivo finale è possibile
+ trovare una sequenza di componenti la cui esecuzione porta dallo stato
+ iniziale all'obiettivo finale analizzando in modo automatico i cambiamenti
+ di stato del sistema passo passo.
+\end_layout
+
+\begin_layout Standard
+Quello che viene proposto in questo scritto è quindi l'emulazione di un
+ basilare principio di pensiero creativo secondo la definizione fornita
+ dal matematico Henri Poincaré
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wiki:henri_poincare_on_creativity"
+
+\end_inset
+
+: 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Creatività è unire elementi esistenti con connessioni nuove, che siano utili
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+È importante a questo punto sottolineare l'importanza della granularità
+ delle componenti.
+ Si pensi infatti alla differenza tra conoscere solo il risultato di una
+ sequenza di operazioni più o meno lunga, ma non i singoli passi che la
+ costituiscono, e la situazione opposta in cui si conoscono singoli passi
+ elementari, ma non sequenze complesse.
+ Nel primo caso sarà possibile solamente eseguire poche operazioni, complesse
+ e che difficilmente si legano ad altre.
+ Nel secondo caso si potrebbero ricavare diverse sequenze di operazioni
+ complesse componendo insieme un'ampia gamma di passi elementari tra quelli
+ conosciuti.
+\end_layout
+
+\begin_layout Standard
+Questo significa che nell'ecosistema di componenti del framework è auspicabile
+ la presenza di molti componenti elementari piuttosto che pochi (o molti)
+ componenti complessi; più i componenti sono semplici, maggiore sarà la
+ probabilità di raggiungere l'obiettivo finale senza l'intervento dell'utente.
+\end_layout
+
+\begin_layout Standard
+Tutto questo sarà più chiaro dopo aver dato una definizione più rigorosa
+ degli elementi che costituiscono il framework (vedi cap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:ontologia-framework"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+WATf
+\emph default
+ e il penetration testing
+\end_layout
+
+\begin_layout Standard
+Contestualizzando quanto finora detto nell'ambito del 
+\emph on
+penetration testing
+\emph default
+ è facile intuire che è possibile utilizzare 
+\emph on
+WATf
+\emph default
+ per costruire software diversi a seconda di come vengono organizzati i
+ componenti.
+ I due casi principali sono i seguenti:
+\end_layout
+
+\begin_layout Itemize
+pochi componenti che assolvono a compiti complessi e poco o per nulla legati
+ l'uno con l'altro:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In questo caso si ottiene un software più o meno generico in cui non viene
+ utilizzato alcun automatismo messo a disposizione del framework.
+ Il risultato è quindi quello di avere lo stesso comportamento delle soluzioni
+ attualmente disponibili.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+molti componenti che assolvono a compiti semplici e molto collegati l'uno
+ con l'altro:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In questo caso si ottiene un software più o meno generico in cui si utilizza
+ fortemente l'automatismo offerto dal framework al punto da permettere una
+ completa autonomia in tutte le fasi del processo di 
+\emph on
+penetration testing
+\emph default
+, dalla raccolta di informazioni allo sfruttamento delle vulnerabilità di
+ sicurezza individuate.
+ Si ottiene così un software semplice da utilizzare per l'utente finale
+ e allo stesso tempo facilmente manutenibile.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Branch NoChildDocument
 status collapsed
