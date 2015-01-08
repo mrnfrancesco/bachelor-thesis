@@ -18,7 +18,7 @@
  \renewcommand{\figureautorefname}{Fig.\negthinspace}%
  \renewcommand{\tableautorefname}{Tab.\negthinspace}%
 }
-\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\@ifpackageloaded{babel}{\addto\extrasitalian{\refnamechanges}}{\refnamechanges}
 
 % in case somebody want to have the label "Equation"
 %\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
@@ -64,7 +64,7 @@
 customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language italian
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -133,7 +133,7 @@ customHeadersFooters
 \tocdepth 2
 \paragraph_separation skip
 \defskip medskip
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 2
 \paperpagestyle fancy
@@ -286,29 +286,668 @@ Applicazioni e caso d'uso
 \end_layout
 
 \begin_layout Section
-Software analizzato
+Software analizzato: OpenCart
 \end_layout
 
 \begin_layout Standard
-breve descrizione OpenCart e problemi di sicurezza -> business critical
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/opencart/frontend-user.png
+	display false
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OpenCart è una piattaforma open source per il commercio elettronico basata
+ su PHP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PHP"
+description "Hypertext Preprocessor"
+
+\end_inset
+
+.
+ Permette in pochi minuti e senza dover avere alcuna conoscenza tecnica
+ approfondita di mettere online il proprio negozio online.
+ Nella documentazione ufficiale è scritto che:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\emph on
+\begin_inset Quotes fld
+\end_inset
+
+OpenCart fornisce le fondamenta professionali e affidabili da cui costruire
+ con successo il proprio negozio online
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definizione pericolosa a mio avviso; secondo quali parametri viene definito
+ infatti un software 
+\emph on
+business critical
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Un software si definisce 
+\emph on
+business critical
+\emph default
+ (letteralmente 
+\begin_inset Quotes fld
+\end_inset
+
+a criticità aziendale
+\begin_inset Quotes frd
+\end_inset
+
+) quando i suoi fallimenti possono portare a costi molto alti per le aziende
+ che li usano.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SoftwareEngineering"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph default
+ affidabile? Sicuramente il framework svolge il compito per il quale è stato
+ creato, ma lo fa sotto tutti gli aspetti? No.
+ Vedremo infatti che lo studio approfondito di OpenCart utilizzando sia
+ approcci statici che dinamici ha rivelato la presenza di numerose vulnerabilità
+ di sicurezza che potrebbero compromettere più o meno seriamente il corretto
+ funzionamento del negozio online.
+ Si noti che al momento della scrittura di questo testo, tutte le falle
+ riportate di seguito risultano ancora non note sia agli sviluppatori che
+ alla community.
 \end_layout
 
 \begin_layout Section
 Vulnerabilità individuate
 \end_layout
 
+\begin_layout Subsection
+Stored XSS
+\end_layout
+
 \begin_layout Standard
-lista delle vulnerabilità individuate con descrizione approfondita sia della
- vulnerabilità in generale sia del metodo di exploitation trovato
+Parlando di negozi online è ovvio che sono molti gli input che l'amministratore
+ dà a OpenCart per la corretta visualizzazione dei prodotti; primi fra tutti
+ nome, descrizione, caratteristiche, ecc.
+ Molti di questi input vengono manipolati prima del salvataggio così da
+ garantire che quello che l'amministratore scrive sarà esattamente quello
+ che l'utente vedrà.
+ Questo però non è vero per tutti i campi, in particolare non è vero per
+ la descrizione dei prodotti.
+\end_layout
+
+\begin_layout Standard
+Sfruttando questa situazione è possibile, a un attaccante che abbia avuto
+ accesso al pannello di amministrazione, inserire del codice Javascript
+ che verrebbe eseguito sui dispositivi di tutti gli utenti che apriranno
+ la pagina in cui compare quella descrizione senza che questi abbiano modo
+ di accorgersene se non analizzando il codice sorgente della pagina HTML
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HTML"
+description "HyperText Markup Language, Linguaggio di marcatura dell'ipertesto"
+
+\end_inset
+
+ renderizzata.
+\end_layout
+
+\begin_layout Standard
+Esistono molti software (si vedano BeEF
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "BeEF"
+description "The Browser Exploitation Framework Project"
+
+\end_inset
+
+, Pyro
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Pyro"
+description "Simple Python Browser Exploitation Framework"
+
+\end_inset
+
+ o OWASP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "OWASP"
+description "Open Web Application Security Project"
+
+\end_inset
+
+ Xenotix) per sfruttare vulnerabilità di questo tipo e che riescono ad arrivare
+ fino ad aprire una shell nel computer vittima tramite poche righe di javascript
+ da inserire in una pagina.
+\end_layout
+
+\begin_layout Subsection
+Directory Traversal
+\end_layout
+
+\begin_layout Standard
+OpenCart fornisce agli amministratori un semplice file manager per la gestione
+ dei contenuti multimediali del proprio negozio online.
+ Tramite esso è possibile vedere l'albero delle cartelle, crearne di nuove
+ o cancellare quelle esistenti; è inoltre possibile spostare e cancellare
+ i file contenuti in esse.
+ Le forti limitazioni imposte dal file manager, però, non permettono di
+ navigare liberamente all'interno del file system, ma hanno come cartella
+ radice quella in cui il framework inserisce i contenuti multimediali, e
+ soprattutto gli unici file mostrati sono quelli di tipo immagine.
+\end_layout
+
+\begin_layout Standard
+Quello che segue è il codice che si occupa di fare il primo di questi controlli:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=PHP,basicstyle={\small},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$directory = rtrim(DIR_IMAGE .
+ 'data/' .
+ str_replace('../', '', $this->request->post['directory']), '/');
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come si può vedere il controllo che viene fatto è molto semplice e si limita
+ ad eliminare le occorrenze della stringa "
+\emph on
+../
+\emph default
+" e questo sembra impedirci di salire nella gerarchia delle cartelle.
+ Questo però è vero solo in apparenza e per rendersene conto basta guardare
+ a cosa succede se utilizziamo i seguenti input:
+\end_layout
+
+\begin_layout Description
+\noindent
+\align block
+../test/ diventerà 
+\series bold
+test/
+\end_layout
+
+\begin_layout Description
+\noindent
+\align block
+./test/
+\emph on
+ 
+\emph default
+non verrà modificato, quindi
+\end_layout
+
+\begin_layout Description
+\noindent
+\align block
+..././test/ diventerà 
+\series bold
+../test/
+\end_layout
+
+\begin_layout Standard
+Con questo semplice esempio è evidente che chiunque abbia accesso al pannello
+ di amministrazione, e quindi al suo file manager, ha la possibilità di:
+\end_layout
+
+\begin_layout Itemize
+mappare l'intero file system del server
+\end_layout
+
+\begin_layout Itemize
+creare cartelle in qualsiasi punto del file system
+\end_layout
+
+\begin_layout Itemize
+cancellare qualunque file e cartella nel server
+\end_layout
+
+\begin_layout Itemize
+spostare immagini e cartelle da e verso qualsiasi posizione
+\end_layout
+
+\begin_layout Standard
+Quindi, per contestualizzare quanto detto in uno scenario di attacco malevolo,
+ quello che è possibile fare è ad esempio:
+\end_layout
+
+\begin_layout Itemize
+cancellare file necessari al corretto funzionamento di OpenCart o qualsiasi
+ altro software installato nel server
+\end_layout
+
+\begin_layout Itemize
+cancellare file che impediscono l'accesso ad aree protette del server (vedi
+ 
+\emph on
+.htaccess
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+verificare l'esistenza di software tramite la presenza di cartelle di installazi
+one
+\end_layout
+
+\begin_layout Subsection
+Arbitrary File Read/Delete
+\end_layout
+
+\begin_layout Standard
+Come già detto in precedenza, OpenCart è scritto in PHP e questo significa
+ che i sorgenti che generano le pagine dello store online non sono visibili
+ perché interpretate lato server.
+ Per questo motivo le cofigurazioni e i file contenenti dati sensibili sono
+ file scritti in PHP.
+\end_layout
+
+\begin_layout Standard
+Una delle più importanti vulnerabilità per un framework PHP è quindi la
+ possibilità di leggere questi file, e OpenCart ne è affetto!
+\end_layout
+
+\begin_layout Standard
+Dal pannello di amministrazione è infatti possibile specificare il nome
+ del file che conterrà i log degli errori del server per poi leggerne ed
+ eventualmente cancellarne il contenuto.
+\end_layout
+
+\begin_layout Standard
+Il nome specificato viene processato nella maniera seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=PHP,basicstyle={\small},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$file = DIR_LOGS.$this->config->get('config_error_filename');
+\end_layout
+
+\begin_layout Plain Layout
+
+if (file_exists($file)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	$this->data['log'] = file_get_contents($file, FILE_USE_INCLUDE_PATH, null);
+\end_layout
+
+\begin_layout Plain Layout
+
+} else {
+\end_layout
+
+\begin_layout Plain Layout
+
+	$this->data['log'] = '';
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il precedente stralcio di codice mostra chiaramente che quando viene impostato
+ il nome del file non viene effettuato alcun controllo e il suo contenuto
+ ci viene fornito nella pagina di risposta.
+ Questo ci permette di inserire non solo qualsiasi nome ed estensione che
+ desideriamo, ma anche qualsiasi percorso relativo che ha come cartella
+ radice 
+\emph on
+DIR_LOGS
+\emph default
+.
+ Utilizzando quindi "
+\emph on
+../../config.php
+\emph default
+" (senza doppi apici) come nome del file otterremo una risposta simile alla
+ seguente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+I puntini di sospensione indicano una deliberata omissione del contenuto
+ del file
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=PHP,basicstyle={\small},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+\noindent
+
+<?php
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+// DB
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+define('DB_DRIVER', 'mysqli');
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+define('DB_HOSTNAME', 'localhost');
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+define('DB_USERNAME', 'root');
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+define('DB_PASSWORD', 'toor');
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+define('DB_DATABASE', 'opencart-1.5.6.4-clean');
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+define('DB_PREFIX', 'oc_');
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+?>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+È chiara la pericolosità di una vulnerabilità come questa: sfruttandola
+ possiamo leggere e cancellare il contenuto di qualsiasi file presente sul
+ server a cui l'utente proprietario della pagina vulnerabile ha accesso.
+ Inoltre, come mostrato nell'esempio, è semplice trovare file che contengono
+ credenziali per l'accesso ad altre risorse altrimenti inaccessibili.
 \end_layout
 
 \begin_layout Section
-OCPT
+WATf e OpenCart
 \end_layout
 
 \begin_layout Standard
-Possibile lista di componenti, esempi di codice e di utilizzo sulla base
- di quanto detto nella sezione precedente
+Finora abbiamo parlato di 
+\emph on
+WATf
+\emph default
+ e delle vulnerabilità di OpenCart, ma come è possibile unire questi due
+ mondi e automatizzare il processo di penetration testing?
+\end_layout
+
+\begin_layout Standard
+Allo stato attuale delle cose non esiste uno strumento specifico per OpenCart
+ che effettui test di sicurezza, ma esistono diverse soluzioni alternative
+ che possiamo suddividere in due macrocategorie:
+\end_layout
+
+\begin_layout Description
+script piccoli programmi creati appositamente per verificare la presenza
+ di una specifica vulnerabilità e che ne permettono poi lo sfruttamento
+ in caso di risposta positiva
+\end_layout
+
+\begin_layout Description
+moduli programmi medio-piccoli creati specificatamente per essere utilizzati
+ all'interno di un framework che offre funzionalità aggiuntive (si veda
+ MetaSploit)
+\end_layout
+
+\begin_layout Standard
+Nel primo caso le funzionalità sono limitate, ma il programma non ha alcun
+ prerequisito necessario.
+ Nel secondo caso le funzionalità offerte possono essere maggiori, oppure
+ potrebbero essere presenti nello stesso framework più moduli che nel complesso
+ offrono funzionalità complesse.
+ Il problema (se così si può definire) di questo approccio è la forte dipendenza
+ dall'intervento del penetration tester che si deve occupare di conoscere
+ i singoli moduli, eseguirli nella giusta sequenza fornendo a ognuno le
+ informazioni ottenute dall'esecuzione del modulo precedente, trovare moduli
+ alternativi nel momento in cui uno o più di questi falliscono il loro compito
+ durante l'esecuzione.
+\end_layout
+
+\begin_layout Standard
+Quello che 
+\emph on
+WATf 
+\emph default
+offre è un approccio a componenti, misto tra script e moduli.
+ Si parla di componenti come moduli in quanto anche 
+\emph on
+WATf
+\emph default
+ offre funzionalità complesse ai propri componenti che non potrebbero altrimenti
+ essere eseguiti senza di queste.
+ Si parla di script perché l'unico compito di cui il penetration tester
+ deve occuparsi è quello di specificare un target e il risultato che vuole
+ ottenere da questo, lasciando fare tutto il resto al meccanismo di automazione
+ fornito da RGP (cap.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:algoritmo-di-pianificazione"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection*
+Un esempio pratico
+\end_layout
+
+\begin_layout Standard
+Supponendo di non avere alcuna informazione sul nostro target, ma di voler
+ conoscere il nome utente e la password sia per l'accesso in FTP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "FTP"
+description "File Transfer Protocol"
+
+\end_inset
+
+ al server, sia del DBMS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DBMS"
+description "DataBase Managment System"
+
+\end_inset
+
+ su cui risiede il database del negozio online che abbiamo scelto come target.
+\end_layout
+
+\begin_layout Standard
+I passi che potremmo seguire per raggiungere il nostro obiettivo senza l'utilizz
+o di 
+\emph on
+WATf
+\emph default
+ sono i seguenti:
+\end_layout
+
+\begin_layout Enumerate
+verificare se lo store online è stato sviluppato con l'aiuto di un CMS e
+ in caso positivo con quale
+\end_layout
+
+\begin_layout Enumerate
+supponendo di aver individuato OpenCart come CMS, verificarne la versione
+ esatta
+\end_layout
+
+\begin_layout Enumerate
+cercare vulnerabilità note che coinvolgono la versione specifica di OpenCart
+ con cui abbiamo a che fare
+\end_layout
+
+\begin_layout Enumerate
+cercare, se esistono, script o moduli che sfruttano le vulnerabilità trovate,
+ oppure scriverli autonomamente
+\end_layout
+
+\begin_layout Enumerate
+eseguire uno ad uno i programmi a disposizione dopo averne studiato gli
+ input necessari
+\end_layout
+
+\begin_layout Standard
+Quello che invece potremmo fare utilizzando 
+\emph on
+WATf
+\emph default
+ è:
+\end_layout
+
+\begin_layout Enumerate
+scaricare, in maniera automatica, i componenti che forniscono la proprietà
+ che rappresenta l'obiettivo finale da raggiungere e tutti i componenti
+ da cui dipendono
+\end_layout
+
+\begin_layout Enumerate
+eseguire il framework specificando come stato finale la proprietà precedente
 \end_layout
 
 \begin_layout Standard
