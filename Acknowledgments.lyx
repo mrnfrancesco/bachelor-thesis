@@ -99,7 +99,7 @@ status open
 
 
 \backslash
-addcontentsline{toc}{chapter}{Ringraziamenti} 
+addcontentsline{toc}{chapter}{Ringraziamenti}
 \end_layout
 
 \end_inset
@@ -108,11 +108,65 @@ addcontentsline{toc}{chapter}{Ringraziamenti}
 \end_layout
 
 \begin_layout Standard
-Grazie a:
+Un ringraziamento particolare a:
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
+\begin_layout Description
+I
+\begin_inset space ~
+\end_inset
+
+miei
+\begin_inset space ~
+\end_inset
+
+genitori che sempre e da sempre mi supportano, anche quando uso casa come
+ fosse un Bed&Breakfast
+\end_layout
+
+\begin_layout Description
+Mia
+\begin_inset space ~
+\end_inset
+
+sorella che è rimasta sempre presente anche dopo essere andata via di casa
+\end_layout
+
+\begin_layout Description
+Luca
+\begin_inset space ~
+\end_inset
+
+Brusco perché anche durante la preparazione della tesi ha continuato a sopportar
+mi e a rimanermi accanto come fa da così tanti anni che io mi sarei già
+ mandato 
+\emph on
+aff*#$
+\end_layout
+
+\begin_layout Description
+Progetto
+\begin_inset space ~
+\end_inset
+
+MoMu per aver mantenuto intatta la mia sanità mentale con un po' di attività
+ fisica durante tutta la preparazione della tesi
+\end_layout
+
+\begin_layout Description
+David
+\begin_inset space ~
+\end_inset
+
+Barchiesi per avermi trasmesso in questi anni un po' della sua infinita
+ esperienza
+\end_layout
+
+\begin_layout Description
+OpenCart per essersi prestato tanto bene ai più svariati test di sicurezza
+\end_layout
+
+\begin_layout Description
 \begin_inset ERT
 status open
 
@@ -144,6 +198,59 @@ status open
 LaTeX
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Stefano
+\begin_inset space ~
+\end_inset
+
+Natussi per avermi fatto capire che finiti gli studi avrò a che fare con
+ clienti che non sanno cosa vogliono, ma sanno benissimo come renderti la
+ vita impossibile
+\end_layout
+
+\begin_layout Description
+Guido
+\begin_inset space ~
+\end_inset
+
+van
+\begin_inset space ~
+\end_inset
+
+Rossum per aver creato un linguaggio di programmazione come Python
+\end_layout
+
+\begin_layout Description
+Antonella
+\begin_inset space ~
+\end_inset
+
+D'Agostini che con le sue vestaglie ha messo più e più volte in dubbio il
+ fatto di voler rimanere etero
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Senza comunque dimenticare anche:
+\end_layout
+
+\begin_layout Standard
+la caffeina, le RedBull, la Nutella, Google, PyCharm
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
 \end_inset
 
 
