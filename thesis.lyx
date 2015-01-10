@@ -684,26 +684,6 @@ filename "Acknowledgments.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch Appendix
-status open
-
-\begin_layout Standard
-\start_of_appendix
-\begin_inset CommandInset include
-LatexCommand include
-filename "Appendix.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage cleardoublepage
 \end_inset
 
