@@ -299,6 +299,10 @@ name "chap:ontologia-framework"
 In questo capitolo verrà data una descrizione approfondita del mondo di
  interesse rappresentato dal framework e gli elementi che lo compongono:
  proprietà e componenti.
+ È importante soffermarsi sul fatto che qualsiasi problema complesso possa
+ essere modellato utilizzando questi due elementi allora sarà risolvibile
+ utilizzando l'approccio, l'algoritmo e il framework proposti nei capitoli
+ successivi.
 \end_layout
 
 \begin_layout Section
