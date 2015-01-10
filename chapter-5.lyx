@@ -12,9 +12,9 @@
 }
 \def\refnamechanges{%
  \renewcommand*{\equationautorefname}[1]{}%
- \renewcommand{\sectionautorefname}{sec.\negthinspace}%
- \renewcommand{\subsectionautorefname}{sec.\negthinspace}%
- \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}%
+ \renewcommand{\sectionautorefname}{\negthinspace}%
+ \renewcommand{\subsectionautorefname}{\negthinspace}%
+ \renewcommand{\subsubsectionautorefname}{\negthinspace}%
  \renewcommand{\figureautorefname}{Fig.\negthinspace}%
  \renewcommand{\tableautorefname}{Tab.\negthinspace}%
 }
@@ -87,8 +87,8 @@ customHeadersFooters
 \paperfontsize 12
 \spacing single
 \use_hyperref true
-\pdf_title "Your title"
-\pdf_author "Your name"
+\pdf_title "Documento > Impostazioni > Proprietà PDF"
+\pdf_author "Francesco Marano"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
@@ -294,14 +294,26 @@ WATf
  applicato all'ambito del penetration testing.
  Verranno esposte alcune delle vulnerabilità di sicurezza individuate in
  OpenCart e il modo di sfruttarle (sez.
- ??).
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:vulnerabilità-individuate"
+
+\end_inset
+
+).
  Verrà infine messo a confronto il processo di penetration testing nel caso
  specifico con e senza l'utilizzo di 
 \emph on
 WATf
 \emph default
  (sez.
- ??).
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:WATf-e-OpenCart"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Section
@@ -356,7 +368,7 @@ description "Hypertext Preprocessor"
 
 .
  Permette in pochi minuti e senza dover avere alcuna conoscenza tecnica
- approfondita di mettere online il proprio negozio online.
+ approfondita di pubblicare il proprio negozio online.
  Nella documentazione ufficiale è scritto che:
 \end_layout
 
@@ -441,7 +453,7 @@ Stored XSS
 \begin_layout Standard
 Parlando di negozi online è ovvio che sono molti gli input che l'amministratore
  dà a OpenCart per la corretta visualizzazione dei prodotti; primi fra tutti
- nome, descrizione, caratteristiche, ecc.
+ nome, descrizione, caratteristiche, prezzo, ecc.
  Molti di questi input vengono manipolati prima del salvataggio così da
  garantire che quello che l'amministratore scrive sarà esattamente quello
  che l'utente vedrà.
@@ -492,7 +504,7 @@ description "Open Web Application Security Project"
 
  Xenotix) per sfruttare vulnerabilità di questo tipo e che riescono ad arrivare
  fino ad aprire una shell nel computer vittima tramite poche righe di javascript
- da inserire nella pagina.
+ inserite nella pagina.
 \end_layout
 
 \begin_layout Subsection
@@ -655,7 +667,8 @@ Come già detto in precedenza, OpenCart è scritto in PHP e questo significa
  che i sorgenti che generano le pagine dello store online non sono visibili
  perché interpretate dal server prima di essere inviate al client.
  Per questo motivo le cofigurazioni e i file contenenti dati sensibili sono
- file scritti in PHP.
+ file scritti in PHP: richiedendoli si ottiene come risposta una pagina
+ bianca.
 \end_layout
 
 \begin_layout Standard
@@ -806,7 +819,7 @@ define('DB_USERNAME', 'admin');
 \begin_layout Plain Layout
 \noindent
 
-define('DB_PASSWORD', 'aSecret);
+define('DB_PASSWORD', 'aSecret');
 \end_layout
 
 \begin_layout Plain Layout
@@ -868,9 +881,9 @@ WATf
 \end_layout
 
 \begin_layout Standard
-Allo stato attuale delle cose non esiste uno strumento specifico per OpenCart
- che effettui test di sicurezza, ma esistono diverse soluzioni alternative
- che possiamo suddividere in due macrocategorie:
+Attualmente non esiste uno strumento specifico per OpenCart che effettui
+ test di sicurezza, ma esistono diverse soluzioni alternative che possiamo
+ suddividere in due macrocategorie:
 \end_layout
 
 \begin_layout Description
@@ -881,7 +894,11 @@ script piccoli programmi creati appositamente per verificare la presenza
 \begin_layout Description
 moduli programmi medio-piccoli creati specificatamente per essere utilizzati
  all'interno di un framework che offre funzionalità aggiuntive (si veda
- MetaSploit)
+ 
+\emph on
+MetaSploit
+\emph default
+)
 \end_layout
 
 \begin_layout Standard
@@ -903,7 +920,7 @@ Quello che
 \emph on
 WATf 
 \emph default
-offre è un approccio a componenti, misto tra script e moduli.
+offre, lo ripetiamo, è un approccio a componenti, misto tra script e moduli.
  Si parla di componenti come moduli in quanto anche 
 \emph on
 WATf
@@ -970,7 +987,8 @@ supponendo di aver individuato OpenCart come CMS, verificarne la versione
 
 \begin_layout Enumerate
 cercare vulnerabilità note che coinvolgono la versione specifica di OpenCart
- con cui abbiamo a che fare
+ con cui abbiamo a che fare, oppure studiare il CMS alla ricerca di nuove
+ falle
 \end_layout
 
 \begin_layout Enumerate
@@ -992,13 +1010,127 @@ WATf
 \end_layout
 
 \begin_layout Enumerate
-scaricare, in maniera automatica, i componenti che forniscono la proprietà
- che rappresenta l'obiettivo finale da raggiungere e tutti i componenti
+scaricare, in maniera automatica, i componenti che forniscono le proprietà
+ che rappresentano l'obiettivo finale da raggiungere e tutti i componenti
  da cui dipendono
 \end_layout
 
 \begin_layout Enumerate
 eseguire il framework specificando come stato finale la proprietà precedente
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/watf-screenshot.png
+	display false
+	scale 52
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+WATf
+\emph default
+ in esecuzione
+\end_layout
+
+\end_inset
+
+
+\emph on
+WATf
+\emph default
+ (versione CLI
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CLI"
+description "Command Line Interface, Interfaccia a riga di comando"
+
+\end_inset
+
+) in esecuzione su un target OpenCart di cui si vogliono conoscere i parametri
+ di FTP e la configurazione del database.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:WATf"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il punto focale di questo nuovo approccio non si basa solo sull'automazione,
+ ma è importante notare che i componenti cooperano per raggiungere uno scopo
+ finale pur non essendo scritti appositamente per quello.
+ Infatti, per raggiungere lo stato finale specificato nell'esempio precedente
+ e mostrato in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WATf"
+
+\end_inset
+
+ sono necessari diversi componenti di cui in realtà uno solo sfrutta delle
+ vulnerabilità di sicurezza per cui potrebbero essere necessarie competenze
+ tecniche più elevate nella loro scrittura; gli altri componenti si occupano
+ di:
+\end_layout
+
+\begin_layout Itemize
+verificare che il target utilizzi OpenCart come CMS
+\end_layout
+
+\begin_layout Itemize
+individuare la versione specifica di OpenCart in esecuzione
+\end_layout
+
+\begin_layout Itemize
+ottenere le credenziali di accesso (username e password) oppure i token
+ di sessione per accedere al pannello di amministrazione
+\end_layout
+
+\begin_layout Itemize
+leggere la configurazione del server fornita dal pannello di amministrazione
+ stesso
+\end_layout
+
+\begin_layout Standard
+Quello che si vuole evidenziare con questo è che ognuno abbia minime conoscenze
+ di programmazione sarebbe in grado di scrivere dei componenti per 
+\emph on
+WATf
+\emph default
+, e che nonostante la loro semplicità potrebbero essere poi essenziali per
+ il raggiungimento dello stato finale specificato.
 \end_layout
 
 \begin_layout Standard
