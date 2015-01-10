@@ -112,7 +112,17 @@ addcontentsline{toc}{chapter}{Sommario}
 \end_layout
 
 \begin_layout Standard
-Abstract/Summary text
+Quando ragioniamo su problemi complessi non facciamo altro che utilizzare
+ il nostro bagaglio culturale per suddividere il problema in sottoproblemi
+ più semplici da risolvere.
+ Sono ancora molte le attività complesse che necessitano l'intervento dell'uomo.
+\end_layout
+
+\begin_layout Standard
+Scopo di questa tesi è studiare un algoritmo e sviluppare un framework che
+ siano in grado di automatizzare questo processo di risoluzione di problemi
+ complessi, in particolare applicato ai test di sicurezza e prendendo il
+ negozio online OpenCart come caso di studio.
 \end_layout
 
 \end_body
