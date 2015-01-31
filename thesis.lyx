@@ -187,15 +187,8 @@ theorems-chap-bytype
 \begin_body
 
 \begin_layout Title
-WAT Framework
-\begin_inset Newline newline
-\end_inset
-
-Ricerca automatica di pattern di esecuzione di componenti
-\end_layout
-
-\begin_layout Subtitle
-con approfondimento al caso di studio del penetration testing
+Ricerca automatica di pattern di esecuzione di componenti a supporto del
+ Penetration Testing
 \end_layout
 
 \begin_layout Author
