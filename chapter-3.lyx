@@ -299,8 +299,15 @@ name "chap:algoritmo-di-pianificazione"
 
 \begin_layout Standard
 In questo capitolo verranno presentati in dettaglio i diversi elementi che
- permettono di rappresentare un problema di pianificazione rispetto al mondo
- presentato.
+ permettono di rappresentare un generico problema di pianificazione attraverso
+ proprietà e componenti (vedi 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:ontologia-framework"
+
+\end_inset
+
+).
  Per raggiungere questo risultato e automatizzare il processo di ricerca
  della soluzione, è stato sviluppato un nuovo algoritmo sulla base del ben
  più noto algoritmo di pianificazione GraphPlan 
@@ -315,7 +322,7 @@ key "publication:GraphPlan"
 \end_layout
 
 \begin_layout Standard
-Chiameremo questo algoritmo RGP
+Per brevità chiameremo questo algoritmo RGP
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RGP"
@@ -469,11 +476,11 @@ gli archi sono di due tipi:
 
 \begin_deeper
 \begin_layout Itemize
-da una proprietà alle azioni di cui è precondizione,
+quelli che collegano una proprietà alle azioni di cui è precondizione,
 \end_layout
 
 \begin_layout Itemize
-da un'azione alla proprietà che ha come postcondizione.
+quelli che collegano un'azione alla proprietà che ha come postcondizione.
 \end_layout
 
 \end_deeper
@@ -484,12 +491,12 @@ Il primo livello contiene le proprietà che identificano lo stato iniziale
 \end_layout
 
 \begin_layout Standard
-L'algoritmo iterativamente espande il grafo, verificando che non sia già
+L'algoritmo espande iterativamente il grafo, verificando che non sia già
  stato raggiunto lo stato finale prima di procedere; durante l'espansione
  RGP cerca, sulla base delle proprietà fino a quel momento ottenute, tutte
  quelle proprietà le cui precondizioni risultano soddisfatte, e che non
- siano già state inserite nel grado, e le utilizza per costruire il livello
- successivo.
+ siano già state inserite nel grado, quindi le utilizza per costruire il
+ livello successivo.
 \end_layout
 
 \begin_layout Subsection

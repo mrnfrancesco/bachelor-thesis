@@ -367,8 +367,8 @@ description "Hypertext Preprocessor"
 \end_inset
 
 .
- Permette in pochi minuti e senza dover avere alcuna conoscenza tecnica
- approfondita di pubblicare il proprio negozio online.
+ Permette di pubblicare il proprio negozio online in pochi minuti e senza
+ dover avere alcuna conoscenza tecnica approfondita.
  Nella documentazione ufficiale è scritto che:
 \end_layout
 
@@ -452,8 +452,8 @@ Stored XSS
 
 \begin_layout Standard
 Parlando di negozi online è ovvio che sono molti gli input che l'amministratore
- dà a OpenCart per la corretta visualizzazione dei prodotti; primi fra tutti
- nome, descrizione, caratteristiche, prezzo, ecc.
+ fornisce a OpenCart per la corretta visualizzazione dei prodotti; primi
+ fra tutti nome, descrizione, caratteristiche, prezzo, ecc.
  Molti di questi input vengono manipolati prima del salvataggio così da
  garantire che quello che l'amministratore scrive sarà esattamente quello
  che l'utente vedrà.
@@ -462,11 +462,12 @@ Parlando di negozi online è ovvio che sono molti gli input che l'amministratore
 \end_layout
 
 \begin_layout Standard
-Sfruttando questa situazione è possibile, a un attaccante che abbia avuto
- accesso al pannello di amministrazione, inserire del codice Javascript
- che verrebbe eseguito sui dispositivi di tutti gli utenti che apriranno
- la pagina in cui compare quella descrizione senza che questi abbiano modo
- di accorgersene se non analizzando il codice sorgente della pagina HTML
+Sfruttando questa situazione, un attaccante che abbia avuto accesso al pannello
+ di amministrazione, può inserire del codice Javascript.
+ Questo verrebbe eseguito sui dispositivi di tutti gli utenti che apriranno
+ la pagina in cui compare quella descrizione.
+ Gli utenti non potrebbero inoltre avere modo di accorgersene se non analizzando
+ il codice sorgente della pagina HTML
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "HTML"
@@ -678,7 +679,7 @@ Una delle più importanti vulnerabilità per un framework PHP è quindi la
 
 \begin_layout Standard
 Dal pannello di amministrazione è infatti possibile specificare il nome
- del file che conterrà i log degli errori del server per poi leggerne ed
+ del file che conterrà il log degli errori del server per poi leggerne ed
  eventualmente cancellarne il contenuto.
 \end_layout
 
@@ -930,8 +931,7 @@ WATf
  Si parla di script perché l'unico compito di cui il penetration tester
  deve occuparsi è quello di specificare un target e il risultato che vuole
  ottenere da questo, lasciando fare tutto il resto al meccanismo di automazione
- fornito da RGP (cap.
- 
+ fornito da RGP (vedi 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:algoritmo-di-pianificazione"
@@ -977,28 +977,30 @@ WATf
 
 \begin_layout Enumerate
 verificare se lo store online è stato sviluppato con l'aiuto di un CMS e
- in caso positivo con quale
+ in caso positivo con quale;
 \end_layout
 
 \begin_layout Enumerate
 supponendo di aver individuato OpenCart come CMS, verificarne la versione
- esatta
+ esatta;
 \end_layout
 
 \begin_layout Enumerate
 cercare vulnerabilità note che coinvolgono la versione specifica di OpenCart
- con cui abbiamo a che fare, oppure studiare il CMS alla ricerca di nuove
- falle
+ individuata al passo precedente, oppure studiare il CMS alla ricerca di
+ nuove falle;
 \end_layout
 
 \begin_layout Enumerate
 cercare, se esistono, script o moduli che sfruttano le vulnerabilità trovate,
- oppure scriverli autonomamente
+ oppure scriverli autonomamente 
+\emph on
+ex-novo;
 \end_layout
 
 \begin_layout Enumerate
 eseguire uno ad uno i programmi a disposizione dopo averne studiato gli
- input necessari
+ input necessari;
 \end_layout
 
 \begin_layout Standard
@@ -1012,11 +1014,11 @@ WATf
 \begin_layout Enumerate
 scaricare, in maniera automatica, i componenti che forniscono le proprietà
  che rappresentano l'obiettivo finale da raggiungere e tutti i componenti
- da cui dipendono
+ da cui dipendono;
 \end_layout
 
 \begin_layout Enumerate
-eseguire il framework specificando come stato finale la proprietà precedente
+eseguire il framework specificando come stato finale la proprietà precedente;
 \end_layout
 
 \begin_layout Standard
@@ -1101,30 +1103,29 @@ reference "fig:WATf"
 
  sono necessari diversi componenti di cui in realtà uno solo sfrutta delle
  vulnerabilità di sicurezza per cui potrebbero essere necessarie competenze
- tecniche più elevate nella loro scrittura; gli altri componenti si occupano
- di:
+ tecniche più elevate nella loro scrittura.
+ Gli altri componenti si occupano di:
 \end_layout
 
 \begin_layout Itemize
-verificare che il target utilizzi OpenCart come CMS
+verificare che il target utilizzi OpenCart come CMS;
 \end_layout
 
 \begin_layout Itemize
-individuare la versione specifica di OpenCart in esecuzione
+individuare la versione specifica di OpenCart in esecuzione;
 \end_layout
 
 \begin_layout Itemize
 ottenere le credenziali di accesso (username e password) oppure i token
- di sessione per accedere al pannello di amministrazione
+ di sessione per accedere al pannello di amministrazione;
 \end_layout
 
 \begin_layout Itemize
-leggere la configurazione del server fornita dal pannello di amministrazione
- stesso
+leggere la configurazione del server fornita dal pannello di amministrazione;
 \end_layout
 
 \begin_layout Standard
-Quello che si vuole evidenziare con questo è che ognuno abbia minime conoscenze
+Quello che si vuole evidenziare è che ognuno che abbia anche minime conoscenze
  di programmazione sarebbe in grado di scrivere dei componenti per 
 \emph on
 WATf
