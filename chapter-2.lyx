@@ -296,13 +296,16 @@ name "chap:ontologia-framework"
 \end_layout
 
 \begin_layout Standard
-In questo capitolo verrà data una descrizione approfondita del mondo di
- interesse rappresentato dal framework e gli elementi che lo compongono:
+In questo capitolo verrà data una descrizione approfondita dell'ambito di
+ interesse rappresentato dal framework e degli elementi che lo compongono:
  proprietà e componenti.
- È importante soffermarsi sul fatto che qualsiasi problema complesso possa
+\end_layout
+
+\begin_layout Standard
+È importante soffermarsi sul fatto che qualsiasi problema complesso possa
  essere modellato utilizzando questi due elementi allora sarà risolvibile
- utilizzando l'approccio, l'algoritmo e il framework proposti nei capitoli
- successivi.
+ utilizzando l'approccio metodologico, l'algoritmo e il framework proposti
+ nei capitoli successivi.
 \end_layout
 
 \begin_layout Section
@@ -318,13 +321,17 @@ name "sec:proprietà-constraint"
 
 \begin_layout Standard
 Ci si può riferire al concetto di proprietà come sinonimo di predicato,
- attributo; si tratta cioè di un'informazione a cui ci stiamo riferendo
- e che caratterizza il nostro target.
- Si concretizza in una coppia chiave-valore in cui la chiave rappresenta
- in modo compatto e facilmente leggibile il nome della proprietà e la gerarchia
- di appartenenza; il valore può essere una semplice stringa, un numero,
- o qualsiasi altro tipo sia primitivo che complesso, e rappresenta l'informazion
-e vera e propria.
+ attributo; si tratta quindi di un'informazione a cui ci stiamo riferendo
+ e che caratterizza il nostro 
+\emph on
+target
+\emph default
+.
+ In concreto si tratta quindi di una coppia chiave-valore in cui la chiave
+ rappresenta, in modo compatto e facilmente leggibile, il nome della proprietà
+ e la gerarchia di appartenenza; il valore invece può essere una semplice
+ stringa, un numero, o qualsiasi altro tipo sia primitivo che complesso,
+ e rappresenta l'informazione vera e propria.
 \end_layout
 
 \begin_layout Standard
@@ -337,17 +344,17 @@ website.cms.opencart.version = 1.5.6.4
 \begin_inset Newline newline
 \end_inset
 
-In questo caso stiamo dicendo che la versione del cms opencart con cui è
- stato costruito il sito web target è la 1.5.6.4
+In questo caso stiamo affermando che la versione del cms opencart con cui
+ è stato costruito il sito web target è la 1.5.6.4
 \begin_inset Newline newline
 \end_inset
 
-Prendendo invece da esempio la proprietà 
+Prendendo invece come esempio la proprietà 
 \shape italic
 website.cms.opencart.admin.credentials
 \shape default
- vediamo come il valore sia difficilmente rappresentabile con un tipo semplice,
- ma più facilmente tramite un dizionario come 
+ notiamo come il valore sia difficilmente rappresentabile con un tipo semplice,
+ ma più adeguato l'utilizzo di un dizionario come 
 \shape italic
 {username: admin, password: secret}
 \shape default
@@ -355,7 +362,7 @@ website.cms.opencart.admin.credentials
 \end_layout
 
 \begin_layout Standard
-Per chiarire subito questi concetti si consideri la 
+Per meglio chiarire questi concetti si consideri la 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:gerarchia-delle-proprietà"
@@ -555,8 +562,8 @@ notazione punto
 \begin_inset Quotes frd
 \end_inset
 
-, in cui si scrive il nome di ogni nodo seguito da un punto, a formare una
- stringa che esplicita l'intera gerarchia della proprietà.
+, in cui si scrive il nome di ogni nodo seguito da un punto, fino a formare
+ una stringa che esplicita l'intera gerarchia della proprietà.
 \end_layout
 
 \begin_layout Standard
@@ -564,9 +571,9 @@ Le proprietà possono essere di due tipi:
 \end_layout
 
 \begin_layout Description
-semplici: sono le proprietà che seguono la descrizione finora fornita: sono
- foglie dell'albero della gerarchia delle proprietà con associato un valore
- di tipo semplice o complesso.
+semplici: sono le proprietà che aderiscono alla descrizione fornita finora:
+ sono cioè foglie dell'albero della gerarchia delle proprietà con associato
+ un valore di tipo semplice o complesso.
 \end_layout
 
 \begin_layout Description
@@ -631,11 +638,11 @@ funzione di confronto
 \end_layout
 
 \begin_layout Standard
-All'atto pratico le proprietà se da un lato sono lo strumento con cui l'utente
- può rappresentare un problema di pianificazione, dall'altro sono anche
- il modo in cui i componenti esprimono le loro dipendenze e la loro funzionalità
-, e che permettono l'automazione del processo di costruzione di una soluzione
- al problema specificato.
+All'atto pratico le proprietà, se da un lato sono lo strumento con cui l'utente
+ può rappresentare gli stati iniziale e finale di un problema di pianificazione,
+ dall'altro sono anche il modo in cui i componenti esprimono le loro dipendenze
+ e la loro funzionalità, e che permettono l'automazione del processo di
+ costruzione di una soluzione al problema specificato.
 \end_layout
 
 \begin_layout Section
@@ -750,8 +757,8 @@ Indica il valore di quale proprietà verrà fornito al momento dell'esecuzione
 \end_layout
 
 \begin_layout Standard
-Da notare il fatto che ogni componente può avere più precondizioni, ma ha
- sempre e solamente una postcondizione.
+Si noti che ogni componente può avere più precondizioni, ma ha sempre solamente
+ una postcondizione.
 \begin_inset Newline newline
 \end_inset
 
@@ -760,10 +767,11 @@ Da notare il fatto che ogni componente può avere più precondizioni, ma ha
  scrittura di componenti complessi che non costituiscono più passi elementari.
  L'atomicità dei componenti infatti è condizione essenziale al fine di garantirn
 e il riutilizzo durante il processo di automazione.
- Nonostante questo approccio porti a un maggior numero di componenti e a
- maggiori tempi di esecuzione, risulta comunque chiaro che componenti troppo
- specializzati sono difficili da inserire all'interno di una catena sfavorendo
- quindi il riutilizzo, concetto di fondamentale importanza in questo contesto.
+ Nonostante questo approccio porti ad un maggior numero di componenti e
+ a maggiori tempi di esecuzione, risulta comunque chiaro che componenti
+ troppo specializzati sono difficili da inserire all'interno di una catena
+ limitandone fortemente il riutilizzo, concetto di fondamentale importanza
+ in questo contesto.
 \end_layout
 
 \begin_layout Standard
@@ -1016,8 +1024,9 @@ Se chiediamo la proprietà
 \shape italic
 website.cms.opencart.admin.credentials
 \shape default
-, cioè le credenziali per l'accesso al pannello di amministrazione, ci aspettiam
-o che ci vengano restituiti sia la 
+, cioè le credenziali per l'accesso al pannello di amministrazione di un
+ sito realizzato con OpenCart, ci aspettiamo che ci vengano restituiti sia
+ la 
 \shape italic
 username
 \shape default
@@ -1029,7 +1038,7 @@ password
  questi dati siano riconoscibili, cioè che una volta ottenuti si possa distingue
 rli tra loro.
  È quindi chiaro che in questo caso l'unica struttura dati che fornisce
- questo meccanismo è il dizionario.
+ tale meccanismo è il dizionario.
  Quindi quello che il framework garantisce è che se definiamo che il tipo
  di ritorno per la proprietà 
 \shape italic
