@@ -115,14 +115,19 @@ addcontentsline{toc}{chapter}{Sommario}
 Quando ragioniamo su problemi complessi non facciamo altro che utilizzare
  il nostro bagaglio culturale per suddividere il problema in sottoproblemi
  più semplici da risolvere.
- Sono ancora molte le attività complesse che necessitano l'intervento dell'uomo.
+ Sono ancora molte le attività complesse che necessitano dell'intervento
+ dell'uomo.
 \end_layout
 
 \begin_layout Standard
 Scopo di questa tesi è studiare un algoritmo e sviluppare un framework che
- siano in grado di automatizzare questo processo di risoluzione di problemi
- complessi, in particolare applicato ai test di sicurezza e prendendo il
- negozio online OpenCart come caso di studio.
+ siano in grado di automatizzare il processo di risoluzione di problemi
+ complessi, in particolare applicandoli all'ambito dei test di sicurezza.
+\begin_inset Newline newline
+\end_inset
+
+Nello specifico si prendenderà come caso di studio il software per la realizzazi
+one di negozi online, OpenCart.
 \end_layout
 
 \end_body
