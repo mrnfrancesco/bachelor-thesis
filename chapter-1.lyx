@@ -294,7 +294,7 @@ reference "sec:caso-di-studio"
 
 \end_inset
 
-), le problematiche (sez.
+), le sue problematiche (sez.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:sicurezza-open-source"
@@ -456,8 +456,6 @@ Schneier famoso esperto in sicurezza informatica e crittografia, sostiene
 \end_inset
 
 se i ricercatori non si rivolgessero al pubblico, i bug non verrebbero risolti.
- Le aziende non li vedono come rischi per la sicurezza finché solo loro
- ne sono a conoscenza
 \begin_inset Quotes frd
 \end_inset
 
@@ -723,7 +721,8 @@ costruttivi
 \end_inset
 
 .
- Nel mondo reale è più facile distruggere un'automobile che costruirne una.
+ Nel mondo reale è più facile distruggere un'automobile che costruirne una
+ nuova.
  Allo stesso modo nel mondo del software è più facile trovare e sfruttare
  una vulnerabilità che aggiungere nuove funzionalità.
  Gli attaccanti hanno molti vantaggi rispetto ai difensori proprio per questa
@@ -734,16 +733,16 @@ costruttivi
  Agli attaccanti, invece, basta trovare una sola vulnerabilità e non devono
  preoccuparsi che lo sfruttarla garantisca ancora il corretto funzionamento
  del programma.
- Risulta quindi evidente che attaccare un sistema richiede meno informazioni
- rispetto al modificarlo.
+ Risulta quindi evidente che attaccare un sistema, piuttosto che modificarlo,
+ richiede un minor numero di informazioni.
 \end_layout
 
 \begin_layout Standard
 Generalmente gli attaccanti, contro sistemi sia open source che proprietari,
- iniziano cercando sulla rete quelle che sono le vulnerabilità note che
- il sistema ha.
- In questa fase non importa quanto e cosa si nasconde del sistema, le informazio
-ni sono altrove, e in ogni caso sono informazioni che servono anche alla
+ iniziano cercando sulla rete quelle che sono le vulnerabilità note, proprie
+ del sistema in esame.
+ In questa fase non importa quanto e cosa si nasconde del sistema; le informazio
+ni sono altrove e in ogni caso sono informazioni che servono anche alla
  parte che difende.
  Una volta ottenute queste informazioni un attaccante usa delle tecniche
  per verificare la presenza dei problemi segnalati.
@@ -762,15 +761,15 @@ statiche quando si esamina il codice sorgente del programma, sia che sia
 \end_layout
 
 \begin_layout Standard
-Negli approcci dinamici un attaccante esegue un programma che invia dati
- e analizza la risposta del sistema in esame per verificare la presenza
- di vulnerabilità comuni o note.
- Open source e codice proprietario non presentano differenze in questo caso.
+Negli approcci con tecniche dinamiche un attaccante esegue un programma
+ che invia dati e analizza la risposta del sistema in esame per verificare
+ la presenza di vulnerabilità comuni o note.
+ In questo caso Open source e codice proprietario non presentano differenze.
 \end_layout
 
 \begin_layout Standard
-Gli attaccanti potrebbero anche guardare il codice sorgente, quindi con
- approccio statico.
+Gli attaccanti potrebbero anche procedere con un approccio statico, analizzando
+ il codice sorgente.
  Se il sistema in esame espone il codice sorgente, allora questo verrà utilizzat
 o per cercare dei 
 \emph on
@@ -855,15 +854,15 @@ praticamente sicuro
  In teoria questo è corretto, ma il problema è che chi trova la falla di
  sicurezza potrebbe sfruttarla invece che aiutare a correggerla.
  Allo stesso modo avere vulnerabilità che non sono pubbliche non significa
- essere al sicuro; significa piuttosto convivere con una bomba che non si
- può sapere quando verrà fatta esplodere.
+ essere al sicuro; significa piuttosto convivere con una bomba a controllo
+ remoto che non si può sapere quando verrà fatta esplodere.
  Fondamentalmente il fatto che chi scopre la vulnerabilità la sfrutti anche
  è un problema per entrambi i sistemi sia open source che non.
 \end_layout
 
 \begin_layout Standard
-Un'affermazione correlata a questo che a volte viene fatta è che non dovrebbero
- venire pubblicate discussioni in cui si parla di vulnerabilità trovate.
+Analogamente a questo si dice anche che le discussioni in cui si parla di
+ vulnerabilità note non dovrebbero essere pubbliche.
  Di nuovo, questo in teoria è un approccio corretto, ma il problema è che
  un attaccante difficilmente tiene per se un'informazione simile, e i canali
  attraverso cui potrebbe diffonderla sono troppi per contenere la diffusione
@@ -887,7 +886,7 @@ name "sec:attuali-contromisure"
 
 \begin_layout Standard
 Per ovviare al problema della sicurezza sempre più spesso le aziende si
- appoggiano a terze parti che offrono l'esperienza di esperti nel settore
+ appoggiano a terze parti che offrono le competenze di esperti nel settore
  per analizzare e testare i sistemi a partire dalle stesse informazioni
  e con le stesse modalità di un attaccante esterno.
 \end_layout
@@ -935,23 +934,23 @@ description "Web Application Attack and Audit Framework"
 \end_layout
 
 \begin_layout Standard
-Tutti quanti questi software offrono un grande aiuto al potenziale attaccante
- in quanto danno modo di verificare l'esistenza di vulnerabilità e in alcuni
- casi come quelli abbiamo visto permettono di sfruttarle in modo semi-automatico.
+Tutti questi software offrono un grande aiuto al potenziale attaccante in
+ quanto consentono di verificare l'esistenza di vulnerabilità e in alcuni
+ casi di sfruttarle in modo semi-automatico.
 \end_layout
 
 \begin_layout Standard
-Quello che però li accomuna è che questi framework hanno un ottimo comportamento
- nel momento in cui si hanno già molte informazioni sul sistema che si sta
- attaccando e si conosce la specifica vulnerabilità da sfruttare.
+Quello che però li accomuna è che tutti hanno un ottimo comportamento nel
+ momento in cui si hanno già molte informazioni sul sistema che si sta attaccand
+o e si conosce la specifica vulnerabilità da sfruttare.
  La fase di raccolta delle informazioni (o 
 \emph on
 information gathering
 \emph default
 ), però, è un'attività che ha una forte dipendenza dalla creatività umana
- che di fronte a un sistema cerca informazioni che potrebbero essere utili
- e mettendo poi insieme ciò che è stato trovato genera una strategia di
- attacco più o meno specifica ed efficace per il sistema in esame.
+ che, di fronte a un sistema, cerca informazioni che potrebbero essere utili
+ e raccogliendo e catalogando ciò che è stato trovato, genera una strategia
+ di attacco più o meno specifica ed efficace per il sistema in esame.
 \end_layout
 
 \begin_layout Section
@@ -968,7 +967,7 @@ name "sec:alternativa-proposta"
 \begin_layout Standard
 Quello che vorrei porre all'attenzione del lettore è la proposta di un nuovo
  framework con un'infrastruttura a componenti come le soluzioni attualmente
- disponibili, ma che offra un grado di automatismo maggiore.
+ disponibili, ma che offra un grado di automatismo superiore.
 \end_layout
 
 \begin_layout Standard
@@ -1248,13 +1247,13 @@ L'idea che sta alla base di
 \emph on
 WATf 
 \emph default
-è quella di creare un meccanismo che permetta all'utente finale di specificare
+è la creazione di un meccanismo che permetta all'utente finale di specificare
  l'obiettivo che vuole raggiungere senza dover specificare i singoli passi
  che sono necessari per raggiungerlo.
 \end_layout
 
 \begin_layout Standard
-Per raggiungere questo scopo si è pensato di scrivere ogni componente
+Per conseguire questo scopo si è pensato di scrivere ogni componente
 \begin_inset Foot
 status open
 
@@ -1272,30 +1271,22 @@ add-on
 
 \end_inset
 
- in modo tale da esprimere programmaticamente quando e con quali vincoli
- è eseguibile e come cambia lo stato del sistema dopo la sua esecuzione.
-\begin_inset Newline newline
-\end_inset
-
-Questo modo di strutturare i componenti permette allo stesso tempo sia di
- mostrare all'utente le stesse informazioni a cui è abituato con le soluzioni
- attuali, sia di sfruttare quelle stesse informazioni per trovare automaticament
-e il momento opportuno di utilizzare il componente per raggiugere l'obiettivo
- specificato.
+ in modo che si possa esprimere di quali informazioni necessita per essere
+ eseguito e come cambia lo stato del sistema dopo la sua esecuzione.
 \end_layout
 
 \begin_layout Standard
 È chiaro quindi che avendo a disposizione questa base di conoscenza e le
  due sole informazioni di stato iniziale e obiettivo finale è possibile
- trovare una sequenza di componenti la cui esecuzione porta dallo stato
- iniziale all'obiettivo finale analizzando in modo automatico i cambiamenti
- di stato del sistema passo passo.
+ determinare una o più sequenze di componenti la cui esecuzione porta dallo
+ stato iniziale all'obiettivo finale analizzando in modo automatico i cambiament
+i di stato del sistema passo dopo passo.
 \end_layout
 
 \begin_layout Standard
-Quello che viene proposto in questo scritto è quindi l'emulazione di un
- basilare principio di pensiero creativo secondo la definizione fornita
- dal matematico Henri Poincaré
+Quello che viene proposto in questa tesi è quindi l'emulazione di un basilare
+ principio di pensiero creativo secondo la definizione fornita dal matematico
+ Henri Poincaré
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wiki:henri_poincare_on_creativity"
