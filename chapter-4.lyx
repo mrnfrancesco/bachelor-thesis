@@ -297,10 +297,10 @@ name "chap:architettura-framework"
 \end_layout
 
 \begin_layout Standard
-In questo capitolo verrà data una panoramica dell'architettura del framework
+In questo capitolo verrà fornita una panoramica dell'architettura del framework
  a un livello di dettaglio tale da poter comprendere la complessità delle
  interazioni tra le entità che entrano in gioco pur senza addentrarsi in
- tediose specifiche né tecniche né implementative tipiche del linguaggio
+ tediose specifiche, né tecniche né implementative, tipiche del linguaggio
  utilizzato.
 \end_layout
 
@@ -325,9 +325,8 @@ reference "sec:diagramma-delle-classi"
 \end_inset
 
  verranno mostrate tutte le classi e le interfaccie che espongono.
- Di ogni classe verrà data una breve spiegazione dell'utilizzo, da tenere
- a mente per meglio comprendere gli esempi pratici forniti nel capitolo
- successivo.
+ Di ogni classe verrà fornita una breve spiegazione dell'utilizzo, per consentir
+e di comprendere meglio gli esempi pratici forniti nel capitolo successivo.
 \end_layout
 
 \begin_layout Standard
@@ -369,8 +368,8 @@ wat
 \emph on
 lib
 \emph default
-, tutti quei package, cartelle o file utili per dare modo all'utente di
- interfacciarsi con il framework; ad esempio il package che contiene la
+, tutti quei package, cartelle o file utili per consentire all'utente di
+ interfacciarsi con il framework; un esempio è il package che contiene la
  GUI
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -875,16 +874,16 @@ pycurl
 status open
 
 \begin_layout Plain Layout
-modulo che fornisce un binding tra il linguaggio Python e la libreria libcurl
+modulo che fornisce un binding tra il linguaggio Python e la libreria C
+ libcurl
 \end_layout
 
 \end_inset
 
 .
- Queste classi aggiungono alle normali funzionalità offerte l'inizializzazione
- sulla base dei valori di default forniti dalla configurazione del framework
- e quelli forniti dall'utente attraverso l'interfaccia preferita, tra quelle
- fornite.
+ Queste classi aggiungono alle normali funzionalità offerte, l'inizializzazione
+ sulla base delle preferenze dell'utente espresse attraverso un'opportuna
+ configurazione.
 \end_layout
 
 \begin_layout Standard
@@ -910,7 +909,11 @@ Un motivo per cui si potrebbe fare questa scelta è, ad esempio, la difficoltà
 \end_layout
 
 \begin_layout Itemize
-costituisce lo standard de facto delle librerie lato client
+costituisce lo standard 
+\emph on
+de facto
+\emph default
+ delle librerie lato client
 \end_layout
 
 \begin_layout Itemize
@@ -1233,8 +1236,8 @@ name "sub:wat.lib.exceptions"
 \end_layout
 
 \begin_layout Standard
-La gestione delle eccezioni attraverso una gerarchia semplice, ma completa
- come quella mostrata di seguito da un lato è rivolta a facilitare la gestione
+La gestione delle eccezioni attraverso una gerarchia semplice, ma completa,
+ come quella mostrata di seguito da un lato è volta a facilitare la gestione
  di situazioni erronee o eccezionali che potrebbero sorgere durante l'esecuzione
 , dall'altro aiuta l'individuazione della sorgente d'errore attraverso una
  nomenclatura atta a segnalare sia il modulo interessato, sia lo specifico
@@ -1248,7 +1251,7 @@ Gli errori generati che non possono essere gestiti in modo trasparente vengono
 \end_layout
 
 \begin_layout Standard
-A seguire è fornita una breve descrizione di tutte le eccezioni e del loro
+Di seguito è fornita una breve descrizione di tutte le eccezioni e del loro
  significato.
 \end_layout
 
@@ -1687,9 +1690,13 @@ WatError
 \end_layout
 
 \begin_layout Standard
-Rappresenta l'eccezione madre di tutte le eccezioni; ogni errore generato
- durante l'esecuzione del framework utilizza, direttamente o indirettamente,
- a questa classe.
+
+\emph on
+WatError
+\emph default
+ rappresenta l'eccezione al vertice della gerarchia delle eccezioni; ogni
+ errore generato durante l'esecuzione del framework utilizza, direttamente
+ o indirettamente, questa classe.
 \begin_inset Newline newline
 \end_inset
 
@@ -2600,7 +2607,7 @@ InvalidTypeError
 \end_layout
 
 \begin_layout Plain Layout
-Indica che il parametro specificato non è di nessuno dei tipi attesi.
+Indica che il tipo del parametro specificato non è nessuno di quelli attesi.
  Questo errore è generato ogni qual volta si ha la necessità di conoscere
  il valore di un parametro per poter proseguire, quindi non è accettabile
  un parametro di un tipo non corretto.
@@ -2836,8 +2843,8 @@ name "sub:wat.lib.graph"
 
 \begin_layout Standard
 L'insieme delle classi mostrate nella figura seguente e la loro interazione
- permettono l'automazione del processo di ricerca di pattern di esecuzione
- di componenti una volta definito il problema di pianificazione di interesse.
+ permettono l'automazione del processo di ricerca di pattern d'esecuzione
+ di componenti, una volta definito il problema di pianificazione di interesse.
 \end_layout
 
 \begin_layout Standard
@@ -3272,14 +3279,15 @@ Le classi nel modulo wat.lib.graph
 
 \begin_layout Standard
 I lettori più attenti avranno sicuramente notato due apparenti discrepanze
- rispetto a quanto detto nel 
+ rispetto a quanto spiegato nel 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:algoritmo-di-pianificazione"
 
 \end_inset
 
- (in particolare 
+ (in particolare sez.
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:grafo-di-pianificazione"
@@ -3332,26 +3340,25 @@ RelaxedGraphPlan
 La separazione dell'esecuzione permette di accedere alla struttura dati
  che rappresenta la soluzione ad esempio per mostrare all'utente il percorso
  che l'algoritmo ha scelto di seguire per raggiungere lo stato finale.
- Non è da escludere anche un intervento manuale che modifichi il grafo in
- accordo con le specifiche, ma soddisfacendo particolari esigenze dell'utente
+ Ciò consentirebbe un intervento manuale che modifichi il grafo in accordo
+ con le specifiche, ma che soddisfi anche particolari esigenze dell'utente
  finale.
 \end_layout
 
 \begin_layout Description
-ActionLayer nonostante il nome indichi che stiamo trattando dello strato
- delle azioni questa classe rappresenta accanto a quanto ci si aspetta anche
- lo strato delle proprietà che ne deriva.
+ActionLayer nonostante il nome indichi che stiamo trattando lo strato delle
+ azioni, questa classe rappresenta oltre questo anche lo strato delle proprietà.
  La scelta di unificare in una sola classe questi due concetti nasce come
  conseguenza diretta della costruzione di un componente che ingloba in sé
  le informazioni riguardo le proprietà coinvolte sia come precondizioni
  che come postcondizioni.
- Questo porta a poter ricavare lo strato delle proprietà come unione delle
+ Questo porta a poter ricavare lo strato delle proprietà come insieme delle
  informazioni fornite dai componenti nello strato delle azioni.
  Quest'ultima considerazione è quella che permette di poter realizzare quanto
  detto nel punto precedente circa l'intervento manuale dell'utente sulla
- soluzione ottenuta che altrimenti sarebbe stato esageratamente complesso
- e avrebbe richiesto una conoscenza dettagliata del framework e di tutte
- le entità in gioco.
+ soluzione ottenuta che altrimenti sarebbe stato molto complesso e avrebbe
+ richiesto una conoscenza dettagliata del framework e di tutte le entità
+ in gioco.
 \end_layout
 
 \begin_layout Description
@@ -3666,7 +3673,7 @@ singleton
 status open
 
 \begin_layout Plain Layout
-Il singleton è un design pattern creazionale che ha lo scopo di garantire
+Il singleton è un design pattern creazionale il cui scopo è quello di garantire
  che di una determinata classe venga creata una e una sola istanza, e di
  fornire un punto di accesso globale a tale istanza.
 \end_layout
@@ -3990,9 +3997,9 @@ search
 shortcut
 \emph default
 s.
- Questi non essenziali al corretto funzionamento, ma permettono di assolvere
- a compiti comuni che richiederebbero la scrittura di codice ripetitivo
- e particolarmente incline a errori.
+ Questi non sono essenziali al corretto funzionamento, ma permettono di
+ assolvere a compiti comuni che richiederebbero la scrittura di codice ripetitiv
+o e particolarmente incline a errori.
 \end_layout
 
 \begin_layout Standard
