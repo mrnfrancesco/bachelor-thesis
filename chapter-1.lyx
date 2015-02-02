@@ -353,9 +353,9 @@ sicurezza informatica
 
 \begin_layout Standard
 La sicurezza informatica è un problema molto sentito in ambito tecnico-informati
-co per via della crescente informatizzazione della società e dei servizi
- (pubblici e privati) in termini di apparati e sistemi informatici e della
- parallela diffusione e specializzazione degli attaccanti.
+co, per via della crescente informatizzazione della società e dei servizi
+ (pubblici e privati) relativamente agli apparati e ai sistemi informatici
+ e della parallela diffusione e specializzazione degli attaccanti.
  Da questa necessità nasce la figura del 
 \emph on
 penetration tester
@@ -417,15 +417,14 @@ name "sec:sicurezza-open-source"
 \end_layout
 
 \begin_layout Standard
-Ci sono stati molti dibattiti riguardo l'impatto dell'approccio 
+L'impatto dell'approccio 
 \emph on
 open source
 \emph default
- sulla sicurezza informatica.
+ sulla sicurezza informatica è stato al centro di molti dibattiti.
  Una delle obiezioni principali è che l'open source espone il codice sorgente
- a chiunque, sia agli attaccanti che ai difensori; ma è veramente questo
- il problema? Vediamo di seguito perché la sicurezza è un rischio sia per
- sistemi 
+ sia agli attaccanti che ai difensori; ma è veramente questo il problema?
+ Vediamo di seguito perché la sicurezza è un rischio sia per sistemi 
 \emph on
 open source
 \emph default
@@ -448,8 +447,9 @@ Bruce
 \begin_inset space ~
 \end_inset
 
-Schneier famoso esperto in sicurezza informatica e crittografia, sostiene
- sia la pubblicazione del codice sorgente, sia dei bug trovati perché 
+Schneier famoso esperto in sicurezza informatica e crittografia, è a favore
+ sia della pubblicazione del codice sorgente, sia dei bug trovati perché
+ 
 \emph on
 
 \begin_inset Quotes fld
@@ -522,8 +522,8 @@ Uno dei più popolari gruppi di discussione dedicato alla sicurezza informatica\
 
 \end_inset
 
-, parla dei problemi di rendere il software open source sicuro in questo
- modo: 
+, parla in questo modo dei problemi di rendere il software open source sicuro:
+ 
 \begin_inset Quotes fld
 \end_inset
 
@@ -608,7 +608,7 @@ Progetti software open source possono essere più sicuri di progetti con
  Tuttavia, le cose che possono realmente rendere programmi open source sicuri
  -- la disponibilità del codice sorgente, il fatto che un gran numero di
  utenti sono disponibili nel trovare e correggere vulnerabilità di sicurezza
- -- può portare le persone in un falso senso di sicurezza
+ -- può portare le persone ad un falso senso di sicurezza
 \begin_inset Quotes frd
 \end_inset
 
@@ -647,7 +647,7 @@ key "ieee_software_open_source_and_security"
 
 \end_inset
 
-, concludono che avere a disposizione il codice sorgente di un software
+, concludono che: avere a disposizione il codice sorgente di un software
  aumenta la sicurezza del sistema.
  In particolare notano che: 
 \begin_inset Quotes fld
@@ -695,11 +695,11 @@ name "sub:sorgenti-proprietari"
 
 \begin_layout Standard
 Si sosteneva che un sistema senza codice sorgente fosse più sicuro perché,
- dato che c'erano meno informazioni disponibili per un attaccante, doveva
- essere più difficile trovare delle vulnerabilità.
- Ora si pensa che quest'argomentazione abbia diversi punti deboli prima
- di tutto perché parte dall'assunzione (errata) di poter sempre mantenere
- segreti i sorgenti, secondo poi perché generalmente un attaccante non necessita
+ essendoci meno informazioni disponibili per un attaccante, era più difficile
+ trovare delle vulnerabilità.
+ Ora si pensa che quest'argomentazione abbia diversi punti deboli.
+ Prima di tutto perché parte dall'assunzione (errata) di poter sempre mantenere
+ segreti i sorgenti, secondo perché generalmente un attaccante non necessita
  del codice sorgente per trovare vulnerabilità di sicurezza.
 \end_layout
 
@@ -731,14 +731,14 @@ costruttivi
  falle di sicurezza, ma prima di tutto devono scrivere un programma che
  funzioni.
  Agli attaccanti, invece, basta trovare una sola vulnerabilità e non devono
- preoccuparsi che lo sfruttarla garantisca ancora il corretto funzionamento
+ preoccuparsi sfruttandola di garantire ancora il corretto funzionamento
  del programma.
  Risulta quindi evidente che attaccare un sistema, piuttosto che modificarlo,
  richiede un minor numero di informazioni.
 \end_layout
 
 \begin_layout Standard
-Generalmente gli attaccanti, contro sistemi sia open source che proprietari,
+Generalmente gli attaccanti, sia dei sistemi open source che proprietari,
  iniziano cercando sulla rete quelle che sono le vulnerabilità note, proprie
  del sistema in esame.
  In questa fase non importa quanto e cosa si nasconde del sistema; le informazio
@@ -842,7 +842,7 @@ name "sub:sicurezza-tramite-segretezza"
 
 \begin_layout Standard
 Capita a volte che sia nota una vulnerabilità, ma non lo sia il modo di
- sfruttarla, quindi si dice che il sistema sia 
+ sfruttarla, quindi si dice che il sistema è 
 \begin_inset Quotes fld
 \end_inset
 
@@ -851,12 +851,12 @@ praticamente sicuro
 \end_inset
 
 .
- In teoria questo è corretto, ma il problema è che chi trova la falla di
- sicurezza potrebbe sfruttarla invece che aiutare a correggerla.
+ In teoria questo è corretto, ma il problema è nelle intenzioni di chi trova
+ la falla e dell'uso che intende farne.
  Allo stesso modo avere vulnerabilità che non sono pubbliche non significa
  essere al sicuro; significa piuttosto convivere con una bomba a controllo
  remoto che non si può sapere quando verrà fatta esplodere.
- Fondamentalmente il fatto che chi scopre la vulnerabilità la sfrutti anche
+ Fondamentalmente il fatto che qualcuno sfrutti le vulnerabilità trovate
  è un problema per entrambi i sistemi sia open source che non.
 \end_layout
 
@@ -947,10 +947,10 @@ o e si conosce la specifica vulnerabilità da sfruttare.
 \emph on
 information gathering
 \emph default
-), però, è un'attività che ha una forte dipendenza dalla creatività umana
- che, di fronte a un sistema, cerca informazioni che potrebbero essere utili
- e raccogliendo e catalogando ciò che è stato trovato, genera una strategia
- di attacco più o meno specifica ed efficace per il sistema in esame.
+), però, è un'attività che si basa prevalentemente sull'intuizione; di fronte
+ a un sistema si cercano informazioni che potrebbero essere utili e raccogliendo
+ e catalogando ciò che è stato trovato, si genera una strategia di attacco
+ più o meno specifica ed efficace per il sistema in esame.
 \end_layout
 
 \begin_layout Section
@@ -1284,9 +1284,9 @@ i di stato del sistema passo dopo passo.
 \end_layout
 
 \begin_layout Standard
-Quello che viene proposto in questa tesi è quindi l'emulazione di un basilare
- principio di pensiero creativo secondo la definizione fornita dal matematico
- Henri Poincaré
+Quello che viene proposto in questa trattazione è quindi l'emulazione di
+ un basilare principio di pensiero creativo secondo la definizione fornita
+ dal matematico Henri Poincaré
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wiki:henri_poincare_on_creativity"
@@ -1311,12 +1311,12 @@ Creatività è unire elementi esistenti con connessioni nuove, che siano utili
 \begin_layout Standard
 È importante a questo punto sottolineare l'importanza della granularità
  delle componenti.
- Si pensi infatti alla differenza tra conoscere solo il risultato di una
- sequenza di operazioni più o meno lunga, ma non i singoli passi che la
- costituiscono, e la situazione opposta in cui si conoscono singoli passi
- elementari, ma non sequenze complesse.
- Nel primo caso sarà possibile solamente eseguire poche operazioni, complesse
- e che difficilmente si legano ad altre.
+ Si pensi infatti alla differenza tra conoscere il risultato di una sequenza
+ di operazioni più o meno lunga, ma non i singoli passi che la costituiscono,
+ e la situazione opposta in cui si conoscono i singoli passi elementari,
+ ma non le sequenze complesse.
+ Nel primo caso sarà possibile eseguire poche operazioni, complesse e che
+ difficilmente si legano ad altre.
  Nel secondo caso si potrebbero ricavare diverse sequenze di operazioni
  complesse componendo insieme un'ampia gamma di passi elementari tra quelli
  conosciuti.
@@ -1371,23 +1371,23 @@ pochi componenti che assolvono a compiti complessi e poco o per nulla legati
 
 \begin_deeper
 \begin_layout Itemize
-In questo caso si ottiene un software più o meno generico in cui non viene
- utilizzato alcun automatismo messo a disposizione del framework.
+In questo caso si ottiene un software in cui non viene utilizzato alcun
+ automatismo messo a disposizione dal framework.
  Il risultato è quindi quello di avere lo stesso comportamento delle soluzioni
  attualmente disponibili.
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-molti componenti che assolvono a compiti semplici e molto collegati l'uno
- con l'altro:
+molti componenti che assolvono a compiti semplici e collegati l'uno con
+ l'altro:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-In questo caso si ottiene un software più o meno generico in cui si utilizza
- fortemente l'automatismo offerto dal framework al punto da permettere una
- completa autonomia in tutte le fasi del processo di 
+In questo caso si ottiene un software in cui si utilizza fortemente l'automatism
+o offerto dal framework al punto da permettere una completa autonomia in
+ tutte le fasi del processo di 
 \emph on
 penetration testing
 \emph default

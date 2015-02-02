@@ -587,11 +587,11 @@ vincoli
 \shape default
 : sono rappresentati da una tripla 
 \shape italic
-proprietà-valore atteso-funzione di confronto
+proprietà - valore atteso - funzione di confronto
 \shape default
 .
  Sono proprietà utilizzate quando non si vuole conoscere il valore di un
- attributo del target, ma si vuole essere certi che questo rispetti certe
+ attributo del target, ma si vuole essere certi che questo rispetti alcune
  regole, ad esempio di uguaglianza.
 \begin_inset Newline newline
 \end_inset
@@ -638,11 +638,11 @@ funzione di confronto
 \end_layout
 
 \begin_layout Standard
-All'atto pratico le proprietà, se da un lato sono lo strumento con cui l'utente
+All'atto pratico le proprietà, da un lato sono lo strumento con cui l'utente
  può rappresentare gli stati iniziale e finale di un problema di pianificazione,
- dall'altro sono anche il modo in cui i componenti esprimono le loro dipendenze
- e la loro funzionalità, e che permettono l'automazione del processo di
- costruzione di una soluzione al problema specificato.
+ dall'altro sono il modo in cui i componenti esprimono le loro dipendenze
+ e la loro funzionalità e che permettono l'automazione del processo di costruzio
+ne di una soluzione al problema specificato.
 \end_layout
 
 \begin_layout Section
@@ -1058,7 +1058,7 @@ password
 
 \begin_layout Standard
 Questa garanzia si mostra necessaria in quanto ogni componente all'interno
- dell'ecosistema di componenti, è un'entità autonoma che esplicita il nome
+ dell'ecosistema di componenti è un'entità autonoma che esplicita il nome
  delle proprietà di cui necessita, ma non da quale componente specifico
  derivino.
 \end_layout

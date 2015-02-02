@@ -299,7 +299,7 @@ name "chap:architettura-framework"
 \begin_layout Standard
 In questo capitolo verrà fornita una panoramica dell'architettura del framework
  a un livello di dettaglio tale da poter comprendere la complessità delle
- interazioni tra le entità che entrano in gioco pur senza addentrarsi in
+ interazioni tra le entità che entrano in gioco, pur senza addentrarsi in
  tediose specifiche, né tecniche né implementative, tipiche del linguaggio
  utilizzato.
 \end_layout
@@ -324,9 +324,9 @@ reference "sec:diagramma-delle-classi"
 
 \end_inset
 
- verranno mostrate tutte le classi e le interfaccie che espongono.
- Di ogni classe verrà fornita una breve spiegazione dell'utilizzo, per consentir
-e di comprendere meglio gli esempi pratici forniti nel capitolo successivo.
+ verranno mostrate tutte le classi e le interfaccie esposte.
+ Di ogni classe verrà fornita una breve spiegazione dell'utilizzo per consentire
+ di comprendere meglio gli esempi pratici forniti nel capitolo successivo.
 \end_layout
 
 \begin_layout Standard
@@ -890,11 +890,11 @@ modulo che fornisce un binding tra il linguaggio Python e la libreria C
 Questo meccanismo permette a ogni componente di ottenere un'istanza della
  classe già inizializzata secondo le preferenze dell'utente; in questo modo
  si minimizza l'impatto sul codice dei componenti nel momento in cui dovessero
- avvenire dei cambiamenti anche significativi alla libreria del framework.
+ avvenire dei cambiamenti, anche significativi, alla libreria del framework.
 \end_layout
 
 \begin_layout Standard
-Da notare, inoltre, che lo sviluppatore può decidere anche di non sfruttare
+Da notare inoltre che lo sviluppatore può decidere anche di non sfruttare
  questo meccanismo.
  In questo caso è suo compito inizializzare l'istanza del client e mantenerne
  la compatibilità in caso di aggiornamenti del framework.
@@ -942,8 +942,8 @@ All'interno di questo modulo sono presenti tutte le classi e le procedure
 componente
 \emph default
 .
- Ogni classe che venisse sviluppata seguendo le direttive di questo modulo
- sarebbe un componente valido, quindi utilizzabile, all'interno del framework.
+ Ogni classe che viene sviluppata seguendo le direttive di questo modulo
+ sarà un componente valido, quindi utilizzabile, all'interno del framework.
 \end_layout
 
 \begin_layout Standard
@@ -1101,10 +1101,10 @@ MetaComponent
 \emph on
 MetaComponent
 \emph default
- è una metaclasse, cioè una classe che definisce ed eventualmente varia
+ è una metaclasse cioè: una classe che definisce ed eventualmente varia
  il comportamento delle classi che la utilizzano.
  In questo contesto la metaclasse ha due ruoli: si occupa da una parte di
- controllare l'attinenza dei componenti agli standard, dall'altra inserisce
+ controllare l'attinenza dei componenti agli standard e dall'altra inserisce
  degli attributi nella classe il cui valore è ricavato automaticamente sulla
  base di altri parametri forniti implicitamente dalla classe stessa.
 \end_layout
@@ -1237,7 +1237,7 @@ name "sub:wat.lib.exceptions"
 
 \begin_layout Standard
 La gestione delle eccezioni attraverso una gerarchia semplice, ma completa,
- come quella mostrata di seguito da un lato è volta a facilitare la gestione
+ come quella mostrata di seguito, da un lato è volta a facilitare la gestione
  di situazioni erronee o eccezionali che potrebbero sorgere durante l'esecuzione
 , dall'altro aiuta l'individuazione della sorgente d'errore attraverso una
  nomenclatura atta a segnalare sia il modulo interessato, sia lo specifico
@@ -1245,9 +1245,9 @@ La gestione delle eccezioni attraverso una gerarchia semplice, ma completa,
 \end_layout
 
 \begin_layout Standard
-Gli errori generati che non possono essere gestiti in modo trasparente vengono
- propagati fino all'interfaccia utente che provvede a darne avviso all'utente
- finale nel modo più appropriato.
+Gli errori generati, che non possono essere gestiti in modo trasparente,
+ vengono propagati fino all'interfaccia utente che provvede a darne avviso
+ all'utente finale nel modo più appropriato.
 \end_layout
 
 \begin_layout Standard
@@ -3363,13 +3363,14 @@ ActionLayer nonostante il nome indichi che stiamo trattando lo strato delle
 
 \begin_layout Description
 NoOpAction questa classe simula un componente che richiede come unica precondizi
-one la stessa proprietà che usa come postcondizione, cioè non fa nulla.
+one la stessa proprietà che usa come postcondizione, cioè non implementa
+ nessuna funzionalità.
 \begin_inset Newline newline
 \end_inset
 
 Se inizialmente questo può far sorridere, a un esame più attento dell'architettu
-ra del framework vista finora in relazione con le specifiche dell'algoritmo
- di automazione viste nel 
+ra del framework in relazione con le specifiche dell'algoritmo di automazione
+ viste nel 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:algoritmo-di-pianificazione"
@@ -3973,7 +3974,7 @@ reference "sec:proprietà-constraint"
 \end_layout
 
 \begin_layout Subsection
-moduli di utilità
+Moduli di utilità
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:moduli-di-utilità"
@@ -4040,7 +4041,7 @@ Oggetto in grado di fornire informazioni utili sul flusso di codice che
 \end_inset
 
 Fornisce inoltre una funzione che permette agli sviluppatori di componenti
- di specificare in modo veloce un'insieme di proprietà con una gerarchia
+ di specificare in modo veloce un insieme di proprietà con una gerarchia
  uguale a meno del nome della foglia a cui ci si sta riferendo.
  Questo permette di velocizzare il processo di specifica delle precondizioni
  nel caso siano molte e tutte con una radice comune.

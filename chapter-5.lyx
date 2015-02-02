@@ -503,8 +503,8 @@ description "Open Web Application Security Project"
 
 \end_inset
 
- Xenotix) per sfruttare vulnerabilità di questo tipo e che riescono ad arrivare
- fino ad aprire una shell nel computer vittima tramite poche righe di javascript
+ Xenotix) per sfruttare vulnerabilità di questo tipo che riescono ad arrivare
+ ad aprire una shell nel computer vittima tramite poche righe di javascript
  inserite nella pagina.
 \end_layout
 
@@ -520,7 +520,7 @@ OpenCart fornisce agli amministratori un semplice file manager per la gestione
  i file contenuti in esse.
  Le forti limitazioni imposte dal file manager, però, non permettono di
  navigare liberamente all'interno del file system, ma hanno come cartella
- radice quella in cui il framework inserisce i contenuti multimediali, e
+ radice quella in cui il framework inserisce i contenuti multimediali e
  soprattutto gli unici file mostrati sono quelli di tipo immagine.
 \end_layout
 
@@ -1125,8 +1125,8 @@ leggere la configurazione del server fornita dal pannello di amministrazione;
 \end_layout
 
 \begin_layout Standard
-Quello che si vuole evidenziare è che ognuno che abbia anche minime conoscenze
- di programmazione sarebbe in grado di scrivere dei componenti per 
+Quello che si vuole evidenziare è che chiunque abbia minime conoscenze di
+ programmazione sarebbe in grado di scrivere dei componenti per 
 \emph on
 WATf
 \emph default
