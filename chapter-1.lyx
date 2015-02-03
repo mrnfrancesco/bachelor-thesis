@@ -756,8 +756,8 @@ dinamiche quando si eseguono dei programmi
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-statiche quando si esamina il codice sorgente del programma, sia che sia
- codice sorgente o codice macchina
+statiche quando si esamina il codice del programma, sia che sia codice sorgente
+ o codice macchina
 \end_layout
 
 \begin_layout Standard
@@ -1310,7 +1310,7 @@ Creatività è unire elementi esistenti con connessioni nuove, che siano utili
 
 \begin_layout Standard
 È importante a questo punto sottolineare l'importanza della granularità
- delle componenti.
+ dei componenti.
  Si pensi infatti alla differenza tra conoscere il risultato di una sequenza
  di operazioni più o meno lunga, ma non i singoli passi che la costituiscono,
  e la situazione opposta in cui si conoscono i singoli passi elementari,
@@ -1331,8 +1331,7 @@ Questo significa che nell'ecosistema di componenti del framework è auspicabile
 
 \begin_layout Standard
 Tutto questo sarà più chiaro dopo aver dato una definizione più rigorosa
- degli elementi che costituiscono il framework (vedi cap.
- 
+ degli elementi che costituiscono il framework (vedi 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:ontologia-framework"

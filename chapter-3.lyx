@@ -451,7 +451,7 @@ name "sec:relaxed-graphplan"
 
 \begin_layout Standard
 RGP è un algoritmo di pianificazione per la ricerca automatica di pattern
- di esecuzione dei componenti al fine di raggiungere lo stato finale specificato.
+ di esecuzione di componenti al fine di raggiungere lo stato finale specificato.
 \end_layout
 
 \begin_layout Standard
@@ -495,7 +495,7 @@ L'algoritmo espande iterativamente il grafo, verificando che non sia già
  stato raggiunto lo stato finale prima di procedere; durante l'espansione
  RGP cerca, sulla base delle proprietà fino a quel momento ottenute, tutte
  quelle proprietà le cui precondizioni risultano soddisfatte, e che non
- siano già state inserite nel grado, quindi le utilizza per costruire il
+ siano già state inserite nel grafo, quindi le utilizza per costruire il
  livello successivo.
 \end_layout
 

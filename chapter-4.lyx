@@ -903,7 +903,11 @@ Da notare inoltre che lo sviluppatore può decidere anche di non sfruttare
 
 Un motivo per cui si potrebbe fare questa scelta è, ad esempio, la difficoltà
  del primo approccio con la libreria pycurl rispetto ad alternative più
- semplici come requests.
+ semplici come 
+\emph on
+requests
+\emph default
+.
  Si è scelto di utilizzare una libreria più complessa per diversi motivi,
  in particolare:
 \end_layout
@@ -1915,8 +1919,8 @@ PropertyError
 \end_layout
 
 \begin_layout Plain Layout
-Indica un generico errore riscontrato durante l'accesso o l'utilizzo a una
- proprietà.
+Indica un generico errore riscontrato durante l'accesso o l'utilizzo di
+ una proprietà.
  Questa classe non è utilizzata direttamente, ma tramite le sottoclassi
  che meglio specificano il tipo di errore.
 \end_layout
@@ -3368,8 +3372,8 @@ one la stessa proprietà che usa come postcondizione, cioè non implementa
 \begin_inset Newline newline
 \end_inset
 
-Se inizialmente questo può far sorridere, a un esame più attento dell'architettu
-ra del framework in relazione con le specifiche dell'algoritmo di automazione
+Se inizialmente questo può sembrare inutile, a un esame più attento dell'archite
+ttura del framework in relazione con le specifiche dell'algoritmo di automazione
  viste nel 
 \begin_inset CommandInset ref
 LatexCommand ref

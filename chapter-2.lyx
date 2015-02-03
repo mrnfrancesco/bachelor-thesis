@@ -659,8 +659,8 @@ name "sec:componenti"
 \begin_layout Standard
 I componenti rappresentano il cuore del framework.
  Sono dei piccoli software che, eventualmente sulla base dei valori di alcune
- proprietà, eseguono una porzione più o meno piccola di codice in grado
- di fornire il valore di una nuova proprietà.
+ proprietà (vincoli), eseguono una porzione più o meno piccola di codice
+ in grado di fornire il valore di una nuova proprietà.
 \end_layout
 
 \begin_layout Standard
@@ -726,8 +726,12 @@ modifica: ultima data in cui il componente è stato aggiornato.
 
 \begin_layout Description
 versione: non è una informazione necessaria e se non fornita assume il valore
- unknown (sconosciuta); è un numero, un nome o un qualsiasi identificativo
- della versione del componente.
+ 
+\emph on
+unknown
+\emph default
+ (sconosciuta); è un numero, un nome o un qualsiasi identificativo della
+ versione del componente.
  È particolarmente utile quando si vogliono eseguire aggiornamenti automatici.
 \end_layout
 
