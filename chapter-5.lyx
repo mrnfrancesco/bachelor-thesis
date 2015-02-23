@@ -1060,16 +1060,8 @@ WATf
 \emph on
 WATf
 \emph default
- (versione CLI
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "CLI"
-description "Command Line Interface, Interfaccia a riga di comando"
-
-\end_inset
-
-) in esecuzione su un target OpenCart di cui si vogliono conoscere i parametri
- di FTP e la configurazione del database.
+ (versione CLI) in esecuzione su un target OpenCart di cui si vogliono conoscere
+ i parametri di FTP e la configurazione del database.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:WATf"
