@@ -965,9 +965,10 @@ name "sec:alternativa-proposta"
 \end_layout
 
 \begin_layout Standard
-Quello che vorrei porre all'attenzione del lettore è la proposta di un nuovo
- framework con un'infrastruttura a componenti come le soluzioni attualmente
- disponibili, ma che offra un grado di automatismo superiore.
+Scopo di questa tesi è progettare e sviluppare un'alternativa agli attuali
+ software per l'automazione del processo di penetration testing.
+ In particolare si vuole progettare un algoritmo che permetta questo automatismo
+ e un framework che ne possa sfruttare a pieno le potenzialità.
 \end_layout
 
 \begin_layout Standard
@@ -988,6 +989,30 @@ description "WAT Framework"
 
 \emph default
  per brevità).
+\end_layout
+
+\begin_layout Standard
+Entrambi l'algoritmo e il framework sono prodotti unici nel loro genere
+ e promettono di apportare, tra gli altri, i seguenti contributi:
+\end_layout
+
+\begin_layout Itemize
+automazione dell'intero processo di penetration testing invece che di una
+ sola fase
+\end_layout
+
+\begin_layout Itemize
+massimizzazione della riusabilità dei componenti al fine di aumentare la
+ qualità dei risultati
+\end_layout
+
+\begin_layout Itemize
+maggiore facilità di utilizzo sia per l'utente finale che per lo sviluppatore
+\end_layout
+
+\begin_layout Itemize
+possibilità di scoprire nuove vulnerabilità unendo insieme procedure note
+ in una sequenza non nota
 \end_layout
 
 \begin_layout Subsection
@@ -1201,7 +1226,7 @@ ramework
 \begin_inset Quotes fld
 \end_inset
 
-framework per qualunque cosa qualcuno pensi
+framework per qualunque cosa chiunque pensi
 \begin_inset Quotes frd
 \end_inset
 
@@ -1227,7 +1252,11 @@ what?
 \begin_inset Quotes frd
 \end_inset
 
-, in americano 
+, in 
+\emph on
+slang
+\emph default
+ americano 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1393,7 +1422,7 @@ penetration testing
 , dalla raccolta di informazioni allo sfruttamento delle vulnerabilità di
  sicurezza individuate.
  Si ottiene così un software semplice da utilizzare per l'utente finale
- e allo stesso tempo facilmente manutenibile.
+ e allo stesso tempo molto efficace.
 \end_layout
 
 \end_deeper
